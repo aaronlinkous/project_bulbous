@@ -1,6 +1,7 @@
-var dir;
+var dir,hash,current = 0;
 
 function change_slide(dir) {
+	console.log(dir);
 	switch(dir) {
 		case "next":
 			if(current < num) {
@@ -26,10 +27,17 @@ function change_slide(dir) {
 				}
 			});
 	}
+
+	window.location.hash = "#"+current;
 }
 
 $(document).ready(function(){
-	
+	hash = window.location.hash;
+	if(hash){
+		hash = hash.replace("#","");
+		change_slide(hash);
+	}
+
 }).keydown(function(e){
 	switch(e.keyCode) {
 		case 37:
