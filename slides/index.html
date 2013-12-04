@@ -3,8 +3,27 @@
 	<head>
 		<title></title>
 		<link rel="stylesheet" type="text/css" href="css/slides.css" media="screen" />
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-		<script src="js/js.js"></script>
+		<style>
+			.slide[data-slide="1"] {
+				background-color: purple;
+			}
+
+			.slide[data-slide="2"] {
+				background-color: tomato;
+			}
+
+			.slide[data-slide="3"] {
+				background-color: green;
+			}
+
+			.slide[data-slide="4"] {
+				background-color: blue;
+			}
+
+			.slide[data-slide="5"] {
+				background-color: teal;
+			}
+		</style>
 	</head>
 	<body>
 		<ul id="slide_wrapper">
@@ -16,5 +35,8 @@
 				<div>Test</div>
 			</li>
 		</ul>
+
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<script src="js/js.js"></script>
 	</body>
 </html>

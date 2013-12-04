@@ -42,9 +42,8 @@ html, body {
   left: 0px;
   margin: 0;
   padding: 0;
-  background: purple;
 }
-/* line 27, ../scss/_core.scss */
+/* line 26, ../scss/_core.scss */
 #slide_wrapper .vert_t {
   -webkit-box-align: top;
   -moz-box-align: top;
@@ -56,7 +55,7 @@ html, body {
   align-items: top;
   -ms-flex-align: top;
 }
-/* line 31, ../scss/_core.scss */
+/* line 30, ../scss/_core.scss */
 #slide_wrapper .vert_c {
   -webkit-box-align: center;
   -moz-box-align: center;
@@ -68,7 +67,7 @@ html, body {
   align-items: center;
   -ms-flex-align: center;
 }
-/* line 35, ../scss/_core.scss */
+/* line 34, ../scss/_core.scss */
 #slide_wrapper .vert_b {
   -webkit-box-align: bottom;
   -moz-box-align: bottom;
@@ -80,7 +79,7 @@ html, body {
   align-items: bottom;
   -ms-flex-align: bottom;
 }
-/* line 39, ../scss/_core.scss */
+/* line 38, ../scss/_core.scss */
 #slide_wrapper .horiz_l {
   -webkit-box-pack: start;
   -moz-box-pack: start;
@@ -92,7 +91,7 @@ html, body {
   justify-content: flex-start;
   -ms-flex-pack: start;
 }
-/* line 43, ../scss/_core.scss */
+/* line 42, ../scss/_core.scss */
 #slide_wrapper .horiz_c {
   -webkit-box-pack: center;
   -moz-box-pack: center;
@@ -104,7 +103,7 @@ html, body {
   justify-content: center;
   -ms-flex-pack: center;
 }
-/* line 47, ../scss/_core.scss */
+/* line 46, ../scss/_core.scss */
 #slide_wrapper .horiz_r {
   -webkit-box-pack: end;
   -moz-box-pack: end;
