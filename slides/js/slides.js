@@ -37,7 +37,6 @@ $(document).ready(function(){
 		hash = hash.replace("#","");
 		change_slide(hash);
 	}
-
 }).keydown(function(e){
 	switch(e.keyCode) {
 		case 37:
