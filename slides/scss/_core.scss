@@ -1,3 +1,52 @@
+* {
+	@include box-sizing(border-box);
+}
+
+html, body {
+	@include size(100% 100%);
+	margin: 0;
+	padding: 0;
+}
+
 #slide_wrapper {
-	
+	@include size(100% 100%);
+	@include position(fixed, 0px 0px 0px 0px);
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	overflow: hidden;
+	background: red;
+
+	.slide {
+		@include display(flex);
+		@include size(100% 100%);
+		@include position(fixed, 0px 0px 0px 0px);
+		margin: 0;
+		padding: 0;
+		background: purple;
+	}
+
+	.vert_t {
+		@include align-items(top);
+	}
+
+	.vert_c {
+		@include align-items(center);
+	}
+
+	.vert_b {
+		@include align-items(bottom);
+	}
+
+	.horiz_l {
+		@include justify-content(flex-start);
+	}
+
+	.horiz_c {
+		@include justify-content(center);
+	}
+
+	.horiz_r {
+		@include justify-content(flex-end);
+	}
 }
