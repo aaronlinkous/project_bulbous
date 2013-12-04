@@ -9,7 +9,6 @@ html, body {
 }
 
 #slide_wrapper {
-	@include size(100% 100%);
 	@include position(fixed, 0px 0px 0px 0px);
 	margin: 0;
 	padding: 0;
@@ -19,8 +18,7 @@ html, body {
 
 	.slide {
 		@include display(flex);
-		@include size(100% 100%);
-		@include position(fixed, 0px 0px 0px 0px);
+		@include position(absolute, 0px 0px 0px 0px);
 		margin: 0;
 		padding: 0;
 		background: purple;
