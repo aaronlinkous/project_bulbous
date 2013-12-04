@@ -1,0 +1,21 @@
+$ratio: 1.6;
+$font_size: 16px;
+$mobile_font_size: 14px;
+
+$large_screen: 1200px;
+$tablet_l: 1024px;
+$tablet_p: 768px;
+$mobile_l: 568px;
+$mobile_p: 360px;
+
+%smooth {
+	-webkit-font-smoothing: antialiased;
+	-webkit-font-feature-settings: 'liga', 'dlig';
+	-moz-font-feature-settings: 'liga', 'dlig';
+	font-feature-settings: 'liga', 'dlig';
+	text-rendering: optimizeLegibility;
+}
+
+%animated {
+	@include transition(all 0.5s ease-in-out);
+}

@@ -1,42 +1,61 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title></title>
+		<title>My Presentation</title>
 		<link rel="stylesheet" type="text/css" href="css/slides.css" media="screen" />
 		<style>
-			.slide[data-slide="1"] {
+			.slide[data-slide="0"] {
 				background-color: purple;
 			}
 
-			.slide[data-slide="2"] {
+			.slide[data-slide="1"] {
 				background-color: tomato;
 			}
 
-			.slide[data-slide="3"] {
+			.slide[data-slide="2"] {
 				background-color: green;
 			}
 
-			.slide[data-slide="4"] {
+			.slide[data-slide="3"] {
 				background-color: blue;
 			}
 
-			.slide[data-slide="5"] {
+			.slide[data-slide="4"] {
 				background-color: teal;
 			}
 		</style>
+
+		<script type="text/javascript">
+		var num = 4; //if starting at 0;
+		var current = 0;
+		</script>
 	</head>
 	<body>
 		<ul id="slide_wrapper">
-			<li class="slide" data-slide="5"></li>
-			<li class="slide" data-slide="4"></li>
-			<li class="slide" data-slide="3"></li>
-			<li class="slide" data-slide="2"></li>
+			<li class="slide vert_c horiz_c active" data-slide="0">
+				<div>Slide 0</div>
+			</li>
 			<li class="slide vert_c horiz_c" data-slide="1">
-				<div>Test</div>
+				<div>Slide 1</div>
+			</li>
+			<li class="slide vert_c horiz_c" data-slide="2">
+				<div>
+					Slide 2
+					<button onclick="change_slide(4)">Jump to slide 4</button>
+				</div>
+			</li>
+			<li class="slide vert_c horiz_c" data-slide="3">
+				<div>Slide 3</div>
+			</li>
+			<li class="slide vert_c horiz_c" data-slide="4">
+				<div>
+					Slide 4
+					<button onclick="change_slide(1)">Jump to slide 1</button>
+				</div>
 			</li>
 		</ul>
 
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-		<script src="js/js.js"></script>
+		<script src="js/slides.js"></script>
 	</body>
 </html>

@@ -14,13 +14,24 @@ html, body {
 	padding: 0;
 	list-style: none;
 	overflow: hidden;
-	background: red;
+	background: #000;
 
 	.slide {
+		@extend %animated;
 		@include display(flex);
-		@include position(absolute, 0px 0px 0px 0px);
+		@include position(absolute, 0px -100% 0px 100%);
 		margin: 0;
 		padding: 0;
+
+		&.active {
+			left: 0;
+			right: 0;
+		}
+
+		&.viewed {
+			left: -100%;
+			right: 100%;
+		}
 	}
 
 	.vert_t {

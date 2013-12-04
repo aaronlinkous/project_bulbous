@@ -1,3 +1,10 @@
+/* line 19, ../scss/_variables.scss */
+#slide_wrapper .slide {
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+
 /* line 1, ../scss/_core.scss */
 * {
   -webkit-box-sizing: border-box;
@@ -24,7 +31,7 @@ html, body {
   padding: 0;
   list-style: none;
   overflow: hidden;
-  background: red;
+  background: #000;
 }
 /* line 19, ../scss/_core.scss */
 #slide_wrapper .slide {
@@ -37,13 +44,23 @@ html, body {
   display: flex;
   position: absolute;
   top: 0px;
-  right: 0px;
+  right: -100%;
   bottom: 0px;
-  left: 0px;
+  left: 100%;
   margin: 0;
   padding: 0;
 }
 /* line 26, ../scss/_core.scss */
+#slide_wrapper .slide.active {
+  left: 0;
+  right: 0;
+}
+/* line 31, ../scss/_core.scss */
+#slide_wrapper .slide.viewed {
+  left: -100%;
+  right: 100%;
+}
+/* line 37, ../scss/_core.scss */
 #slide_wrapper .vert_t {
   -webkit-box-align: top;
   -moz-box-align: top;
@@ -55,7 +72,7 @@ html, body {
   align-items: top;
   -ms-flex-align: top;
 }
-/* line 30, ../scss/_core.scss */
+/* line 41, ../scss/_core.scss */
 #slide_wrapper .vert_c {
   -webkit-box-align: center;
   -moz-box-align: center;
@@ -67,7 +84,7 @@ html, body {
   align-items: center;
   -ms-flex-align: center;
 }
-/* line 34, ../scss/_core.scss */
+/* line 45, ../scss/_core.scss */
 #slide_wrapper .vert_b {
   -webkit-box-align: bottom;
   -moz-box-align: bottom;
@@ -79,7 +96,7 @@ html, body {
   align-items: bottom;
   -ms-flex-align: bottom;
 }
-/* line 38, ../scss/_core.scss */
+/* line 49, ../scss/_core.scss */
 #slide_wrapper .horiz_l {
   -webkit-box-pack: start;
   -moz-box-pack: start;
@@ -91,7 +108,7 @@ html, body {
   justify-content: flex-start;
   -ms-flex-pack: start;
 }
-/* line 42, ../scss/_core.scss */
+/* line 53, ../scss/_core.scss */
 #slide_wrapper .horiz_c {
   -webkit-box-pack: center;
   -moz-box-pack: center;
@@ -103,7 +120,7 @@ html, body {
   justify-content: center;
   -ms-flex-pack: center;
 }
-/* line 46, ../scss/_core.scss */
+/* line 57, ../scss/_core.scss */
 #slide_wrapper .horiz_r {
   -webkit-box-pack: end;
   -moz-box-pack: end;
