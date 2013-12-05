@@ -6,24 +6,24 @@ function change_slide(dir) {
 		case "next":
 			if(current < num) {
 				current++;
-				$(".active").removeClass("active viewed backwards").addClass("viewed");
+				$(".active").removeClass("active viewed no_transition").addClass("viewed");
 				$(".slide:eq("+current+")").addClass("active");
 			}
 			break;
 		case "prev":
 			if(current > 0) {
 				current--;
-				$(".active").removeClass("active viewed backwards");
-				$(".slide:eq("+current+")").removeClass("viewed").addClass("active backwards");
+				$(".active").removeClass("active viewed no_transition");
+				$(".slide:eq("+current+")").removeClass("viewed").addClass("active no_transition");
 			}
 			break;
 		default:
 			current = dir;
-			$(".slide").removeClass("active viewed").each(function(){
+			$(".slide").removeClass("active viewed no_transition").each(function(){
 				if($(this).attr("data-slide") < dir) {
 					$(this).addClass("viewed");
 				} else if($(this).attr("data-slide") == dir) {
-					$(this).addClass("active");
+					$(this).addClass("active no_transition");
 				}
 			});
 	}

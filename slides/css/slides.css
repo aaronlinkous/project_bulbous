@@ -48,7 +48,7 @@ html, body {
   display: flex;
 }
 /* line 29, ../scss/_core.scss */
-#slide_wrapper .slide.viewed, #slide_wrapper .slide.backwards {
+#slide_wrapper .slide.viewed, #slide_wrapper .slide.no_transition {
   display: -webkit-box;
   display: -moz-box;
   display: box;
