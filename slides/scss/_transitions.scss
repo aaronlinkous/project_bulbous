@@ -1,0 +1,43 @@
+@include keyframes(fade_in) {
+	0% {
+		opacity: 0;
+	}
+	1% {
+		@include display(flex);
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@include keyframes(slide_in) {
+	0% {
+		left: 100%;
+		right: -100%;
+	}
+	1% {
+		@include display(flex);
+	}
+	100% {
+		left: 0;
+		right: 0;
+	}
+}
+
+#slide_wrapper .slide {
+	&[data-next-trans="fade_in"] {
+		+ .slide {
+			&.active {
+				@include animation(fade_in .25s ease-in);
+			}
+		}
+	}
+
+	&[data-next-trans="slide_in"] {
+		+ .slide {
+			&.active {
+				@include animation(slide_in .25s ease-in);
+			}
+		}
+	}
+}

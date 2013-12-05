@@ -3,6 +3,8 @@
 	<head>
 		<title>My Presentation</title>
 		<link rel="stylesheet" type="text/css" href="css/slides.css" media="screen" />
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
 		<style>
 			.slide[data-slide="0"] {
 				background-color: purple;
@@ -27,14 +29,31 @@
 
 		<script type="text/javascript">
 			var num = 4; //if starting at 0;
+
+			$(document).keydown(function(e){
+				switch(e.keyCode) {
+					case 37:
+						change_slide("prev");
+						break;
+					case 38:
+						change_slide("up");
+						break;
+					case 39:
+						change_slide("next");
+						break;
+					case 40:
+						change_slide("down");
+						break;
+				}
+			});
 		</script>
 	</head>
 	<body>
 		<ul id="slide_wrapper">
-			<li class="slide vert_c horiz_c active" data-slide="0">
+			<li class="slide vert_c horiz_c active" data-next-trans="fade_in" data-slide="0">
 				<div>Slide 0</div>
 			</li>
-			<li class="slide vert_c horiz_c" data-slide="1">
+			<li class="slide vert_c horiz_c" data-next-trans="slide_in" data-slide="1">
 				<div>Slide 1</div>
 			</li>
 			<li class="slide vert_c horiz_c" data-slide="2">
@@ -54,7 +73,6 @@
 			</li>
 		</ul>
 
-		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 		<script src="js/slides.js"></script>
 	</body>
 </html>

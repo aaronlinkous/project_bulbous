@@ -6,15 +6,15 @@ function change_slide(dir) {
 		case "next":
 			if(current < num) {
 				current++;
-				$(".active").removeClass("active viewed").addClass("viewed");
+				$(".active").removeClass("active viewed backwards").addClass("viewed");
 				$(".slide:eq("+current+")").addClass("active");
 			}
 			break;
 		case "prev":
 			if(current > 0) {
 				current--;
-				$(".active").removeClass("active viewed");
-				$(".slide:eq("+current+")").removeClass("viewed").addClass("active");
+				$(".active").removeClass("active viewed backwards");
+				$(".slide:eq("+current+")").removeClass("viewed").addClass("active backwards");
 			}
 			break;
 		default:
@@ -36,20 +36,5 @@ $(document).ready(function(){
 	if(hash){
 		hash = hash.replace("#","");
 		change_slide(hash);
-	}
-}).keydown(function(e){
-	switch(e.keyCode) {
-		case 37:
-			change_slide("prev");
-			break;
-		case 38:
-			change_slide("up");
-			break;
-		case 39:
-			change_slide("next");
-			break;
-		case 40:
-			change_slide("down");
-			break;
 	}
 });
