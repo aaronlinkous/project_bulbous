@@ -28,7 +28,7 @@ html, body {
 
 		&.viewed, &.backwards {
 			@include display(flex);
-			@include animation(none);
+			@include animation(none !important);
 		}
 	}
 

@@ -56,9 +56,9 @@ html, body {
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-animation: none;
-  -moz-animation: none;
-  animation: none;
+  -webkit-animation: none !important;
+  -moz-animation: none !important;
+  animation: none !important;
 }
 /* line 35, ../scss/_core.scss */
 #slide_wrapper .vert_t {
