@@ -17,6 +17,10 @@ function change_slide(dir) {
 				$(".slide:eq("+current+")").removeClass("viewed").addClass("active no_transition");
 			}
 			break;
+		case "up":
+			break;
+		case "down":
+			break;
 		default:
 			current = dir;
 			$(".slide").removeClass("active viewed no_transition").each(function(){
@@ -32,6 +36,7 @@ function change_slide(dir) {
 }
 
 $(document).ready(function(){
+	console.log(num);
 	hash = window.location.hash;
 	if(hash){
 		hash = hash.replace("#","");

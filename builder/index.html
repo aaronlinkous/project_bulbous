@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>My Presentation</title>
+		<link rel="stylesheet" type="text/css" href="css/builder.css" media="screen" />
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	</head>
+	<body>
+
+		<script src="js/builder.js"></script>
+		<script src="js/_home.js"></script>
+		<script>
+			if(typeof builder=='undefined'){
+				var builder;
+				if(typeof _home=='object'){
+					var builder =  new Class(_home);
+					if(typeof _home=='object'){
+						console.log('builder: Instatiating builder instance '+_home.name+'.');
+						var builder =  new Class(_home);
+						typeof _home.init=='function' ? builder.init() : builder._init();
+					}
+				} else {
+					var builder =  new Class(CMS);
+					builder._init();
+					console.log('builder: Class '+_home.name+' doesnt exist.');
+				}
+			} else {
+				console.log('builder: A builder instance has already been instantiated.');
+			}
+		</script>
+	</body>
+</html>
