@@ -1,2 +1,8 @@
 .DS_Store
 .sass-cache
+/nbproject/private/
+nbproject/project.properties
+
+nbproject/project.xml
+
+.gitignore
