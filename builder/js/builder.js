@@ -1,3 +1,3 @@
-(function(_builder, $, undefined ) {
+(function(Builder, $, undefined ) {
 
-}(window._builder = window._builder || {}, jQuery));
+}(window.Builder = window.Builder || {}, jQuery));

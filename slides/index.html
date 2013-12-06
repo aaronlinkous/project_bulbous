@@ -30,19 +30,16 @@
 		<script type="text/javascript">
 			var num = 4;
 
-			$(document).keydown(function(e){
+			$(document).ready(function(){
+				hash = window.location.hash;
+				if(hash) Slide.jump(hash.replace("#",""));
+			}).keydown(function(e){
 				switch(e.keyCode) {
 					case 37:
-						_slides.change_slide("prev");
-						break;
-					case 38:
-						_slides.change_slide("up");
+						Slide.prev();
 						break;
 					case 39:
-						_slides.change_slide("next");
-						break;
-					case 40:
-						_slides.change_slide("down");
+						Slide.next();
 						break;
 				}
 			});
@@ -59,7 +56,7 @@
 			<li class="slide vert_c horiz_c" data-next-trans="fade_in" data-slide="2">
 				<div>
 					Slide 2
-					<button onclick="change_slide(4)">Jump to slide 4</button>
+					<button onclick="Slide.jump(4)">Jump to slide 4</button>
 				</div>
 			</li>
 			<li class="slide vert_c horiz_c" data-next-trans="slide_in" data-slide="3">
@@ -68,7 +65,7 @@
 			<li class="slide vert_c horiz_c" data-slide="4">
 				<div>
 					Slide 4
-					<button onclick="change_slide(1)">Jump to slide 1</button>
+					<button onclick="Slide.jump(1)">Jump to slide 1</button>
 				</div>
 			</li>
 		</ul>
