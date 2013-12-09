@@ -1,0 +1,18 @@
+html, body, iframe, div {
+	margin:0;
+	padding:0;
+	height: 100%;
+	width: 100%;
+}
+
+#epiceditor-editor-frame {
+	position: absolute;
+	width: 25%;
+	left: 0;
+}
+
+#epiceditor-previewer-frame {
+	position: absolute;
+	width: 75%;
+	left: 25%;
+}

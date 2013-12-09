@@ -1,0 +1,38 @@
+* {
+	@include box-sizing(border-box);
+}
+
+html, body {
+	@include size(100% 100%);
+	margin: 0;
+	padding: 0;
+}
+
+#epiceditor {
+	@include position(fixed, 0px 0px 0px 0px);
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+
+	iframe {
+		height: 100%;
+		width: 100%;
+	}
+}
+
+#controls {
+	@include position(fixed, 0 0px 0px 0px, 999);
+	height: $control_height;
+	background-color: grey;
+}
+
+#timeline {
+	@include position(fixed, 100% 0px 0 0px, 998);
+	height: $control_height*3;
+	background: red;
+
+	&.open {
+		top: auto;
+		bottom: $control_height;
+	}
+}
