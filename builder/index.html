@@ -4,14 +4,23 @@
 		<title>My Presentation</title>
 		<link rel="stylesheet" type="text/css" href="css/builder.css" media="screen" />
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+		<script src="js/Markdown.Converter.js"></script>
+		<script src="js/Markdown.Sanitizer.js"></script>
+		<script src="js/Markdown.Editor.js"></script>
 	</head>
 	<body>
-		<section id="epiceditor"></section>
-
+		<div id="wrapper">
+			<section id="editor">
+				<aside id="wmd-button-bar"></aside>
+				<textarea id="wmd-input" draggable="false"></textarea>
+			</section>
+	
+			<section id="wmd-preview"></section>
+		</div>
 		<section id="controls"></section>
 		<section id="timeline"></section>
-		
-		<script src="js/epiceditor.min.js"></script>
+
 		<script src="js/builder.js"></script>
 	</body>
 </html>

@@ -14,23 +14,6 @@ html, body {
 }
 
 /* line 11, ../scss/_core.scss */
-#epiceditor {
-  position: fixed;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-/* line 17, ../scss/_core.scss */
-#epiceditor iframe {
-  height: 100%;
-  width: 100%;
-}
-
-/* line 23, ../scss/_core.scss */
 #controls {
   position: fixed;
   right: 0px;
@@ -38,10 +21,10 @@ html, body {
   left: 0px;
   z-index: 999;
   height: 50px;
-  background-color: grey;
+  background-color: rgba(0, 0, 255, 0.5);
 }
 
-/* line 29, ../scss/_core.scss */
+/* line 17, ../scss/_core.scss */
 #timeline {
   position: fixed;
   top: 100%;
@@ -51,8 +34,138 @@ html, body {
   height: 150px;
   background: red;
 }
-/* line 34, ../scss/_core.scss */
+/* line 22, ../scss/_core.scss */
 #timeline.open {
   top: auto;
   bottom: 50px;
+}
+
+/* line 1, ../scss/_editor.scss */
+#wrapper {
+  width: 100%;
+  height: 100%;
+}
+/* line 4, ../scss/_editor.scss */
+#wrapper blockquote {
+  border-left: 2px dotted #888;
+  padding-left: 5px;
+  background: #d0f0ff;
+}
+/* line 10, ../scss/_editor.scss */
+#wrapper #editor {
+  background-color: #333;
+  width: calc(500px);
+  height: 100%;
+  float: left;
+}
+/* line 16, ../scss/_editor.scss */
+#wrapper #editor textarea {
+  background-color: #333;
+  color: #fff;
+  font-family: arial;
+  font-size: 14px;
+  border: none;
+  width: 100%;
+  height: calc(100% - 100px);
+  outline: none;
+  resize: none;
+}
+/* line 29, ../scss/_editor.scss */
+#wrapper #wmd-preview {
+  width: calc(100% - 500px);
+  height: 100%;
+  float: right;
+  background: gray;
+}
+/* line 36, ../scss/_editor.scss */
+#wrapper #wmd-button-bar {
+  width: 100%;
+  height: 50px;
+  background-color: Silver;
+}
+/* line 42, ../scss/_editor.scss */
+#wrapper .wmd-input {
+  height: 300px;
+  width: 100%;
+  background-color: Gainsboro;
+  border: 1px solid DarkGray;
+}
+/* line 50, ../scss/_editor.scss */
+#wrapper .wmd-preview {
+  background-color: #c0e0ff;
+}
+/* line 55, ../scss/_editor.scss */
+#wrapper .wmd-button-row {
+  position: relative;
+  margin: 0;
+  padding: 0px;
+  height: 20px;
+}
+/* line 63, ../scss/_editor.scss */
+#wrapper .wmd-spacer {
+  width: 1px;
+  height: 20px;
+  margin-left: 14px;
+  position: absolute;
+  background-color: Silver;
+  display: inline-block;
+  list-style: none;
+}
+/* line 74, ../scss/_editor.scss */
+#wrapper .wmd-button {
+  width: 20px;
+  height: 20px;
+  padding-left: 2px;
+  padding-right: 3px;
+  position: absolute;
+  display: inline-block;
+  list-style: none;
+  cursor: pointer;
+}
+/* line 85, ../scss/_editor.scss */
+#wrapper .wmd-button > span {
+  background-image: url(../images/wmd-buttons.png);
+  background-repeat: no-repeat;
+  background-position: 0px 0px;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+/* line 95, ../scss/_editor.scss */
+#wrapper .wmd-spacer1 {
+  left: 50px;
+}
+/* line 99, ../scss/_editor.scss */
+#wrapper .wmd-spacer2 {
+  left: 175px;
+}
+/* line 103, ../scss/_editor.scss */
+#wrapper .wmd-spacer3 {
+  left: 300px;
+}
+/* line 111, ../scss/_editor.scss */
+#wrapper .wmd-prompt-background {
+  background-color: Black;
+}
+/* line 116, ../scss/_editor.scss */
+#wrapper .wmd-prompt-dialog {
+  border: 1px solid #999999;
+  background-color: #F5F5F5;
+}
+/* line 121, ../scss/_editor.scss */
+#wrapper .wmd-prompt-dialog > div {
+  font-size: 0.8em;
+  font-family: arial, helvetica, sans-serif;
+}
+/* line 127, ../scss/_editor.scss */
+#wrapper .wmd-prompt-dialog > form > input[type="text"] {
+  border: 1px solid #999999;
+  color: black;
+}
+/* line 132, ../scss/_editor.scss */
+#wrapper .wmd-prompt-dialog > form > input[type="button"] {
+  border: 1px solid #888888;
+  font-family: trebuchet MS, helvetica, sans-serif;
+  font-size: 0.8em;
+  font-weight: bold;
 }
