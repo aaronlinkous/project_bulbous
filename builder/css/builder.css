@@ -52,14 +52,15 @@ html, body {
   background: #d0f0ff;
 }
 /* line 10, ../scss/_editor.scss */
-#wrapper #editor {
+#wrapper #wmd-editor {
   background-color: #333;
   width: calc(500px);
   height: 100%;
   float: left;
 }
 /* line 16, ../scss/_editor.scss */
-#wrapper #editor textarea {
+#wrapper #wmd-editor textarea {
+  padding: 10px;
   background-color: #333;
   color: #fff;
   font-family: arial;
@@ -70,59 +71,37 @@ html, body {
   outline: none;
   resize: none;
 }
-/* line 29, ../scss/_editor.scss */
+/* line 30, ../scss/_editor.scss */
 #wrapper #wmd-preview {
   width: calc(100% - 500px);
   height: 100%;
   float: right;
   background: gray;
 }
-/* line 36, ../scss/_editor.scss */
+/* line 37, ../scss/_editor.scss */
 #wrapper #wmd-button-bar {
   width: 100%;
   height: 50px;
   background-color: Silver;
 }
 /* line 42, ../scss/_editor.scss */
-#wrapper .wmd-input {
-  height: 300px;
-  width: 100%;
-  background-color: Gainsboro;
-  border: 1px solid DarkGray;
-}
-/* line 50, ../scss/_editor.scss */
-#wrapper .wmd-preview {
-  background-color: #c0e0ff;
-}
-/* line 55, ../scss/_editor.scss */
 #wrapper .wmd-button-row {
-  position: relative;
+  width: 100%;
+  height: 50px;
   margin: 0;
   padding: 0px;
-  height: 20px;
 }
-/* line 63, ../scss/_editor.scss */
-#wrapper .wmd-spacer {
-  width: 1px;
-  height: 20px;
-  margin-left: 14px;
-  position: absolute;
-  background-color: Silver;
-  display: inline-block;
-  list-style: none;
-}
-/* line 74, ../scss/_editor.scss */
+/* line 48, ../scss/_editor.scss */
 #wrapper .wmd-button {
   width: 20px;
   height: 20px;
   padding-left: 2px;
   padding-right: 3px;
-  position: absolute;
   display: inline-block;
   list-style: none;
   cursor: pointer;
 }
-/* line 85, ../scss/_editor.scss */
+/* line 58, ../scss/_editor.scss */
 #wrapper .wmd-button > span {
   background-image: url(../images/wmd-buttons.png);
   background-repeat: no-repeat;
@@ -131,38 +110,38 @@ html, body {
   height: 20px;
   display: inline-block;
 }
-/* line 95, ../scss/_editor.scss */
+/* line 68, ../scss/_editor.scss */
 #wrapper .wmd-spacer1 {
   left: 50px;
 }
-/* line 99, ../scss/_editor.scss */
+/* line 72, ../scss/_editor.scss */
 #wrapper .wmd-spacer2 {
   left: 175px;
 }
-/* line 103, ../scss/_editor.scss */
+/* line 76, ../scss/_editor.scss */
 #wrapper .wmd-spacer3 {
   left: 300px;
 }
-/* line 111, ../scss/_editor.scss */
+/* line 84, ../scss/_editor.scss */
 #wrapper .wmd-prompt-background {
   background-color: Black;
 }
-/* line 116, ../scss/_editor.scss */
+/* line 89, ../scss/_editor.scss */
 #wrapper .wmd-prompt-dialog {
   border: 1px solid #999999;
   background-color: #F5F5F5;
 }
-/* line 121, ../scss/_editor.scss */
+/* line 94, ../scss/_editor.scss */
 #wrapper .wmd-prompt-dialog > div {
   font-size: 0.8em;
   font-family: arial, helvetica, sans-serif;
 }
-/* line 127, ../scss/_editor.scss */
+/* line 100, ../scss/_editor.scss */
 #wrapper .wmd-prompt-dialog > form > input[type="text"] {
   border: 1px solid #999999;
   color: black;
 }
-/* line 132, ../scss/_editor.scss */
+/* line 105, ../scss/_editor.scss */
 #wrapper .wmd-prompt-dialog > form > input[type="button"] {
   border: 1px solid #888888;
   font-family: trebuchet MS, helvetica, sans-serif;
