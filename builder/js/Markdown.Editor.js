@@ -1031,24 +1031,11 @@
 
         style.zIndex = "1000";
 
-        if (uaSniffed.isIE) {
-            style.filter = "alpha(opacity=50)";
-        }
-        else {
-            style.opacity = "0.5";
-        }
-
         var pageSize = position.getPageSize();
         style.height = pageSize[1] + "px";
 
-        if (uaSniffed.isIE) {
-            style.left = doc.documentElement.scrollLeft;
-            style.width = doc.documentElement.clientWidth;
-        }
-        else {
-            style.left = "0";
-            style.width = "100%";
-        }
+        style.left = "0";
+        style.width = "100%";
 
         doc.body.appendChild(background);
         return background;
