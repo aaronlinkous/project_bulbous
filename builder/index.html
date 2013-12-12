@@ -12,6 +12,8 @@
 	</head>
 	<body>
 
+		<style id="slide_styles"></style>
+
 		<section id="editor">
 			<ul id="code_options"></ul>
 			<textarea id="code" draggable="false"></textarea>
@@ -20,7 +22,15 @@
 		<section id="presentation">
 			<ul id="slide_options">
 				<li>
-					<input id="slide_margin" type="range" min="0" max="25%" value="0" />
+					<input class="slide_style" data-style="padding" data-post="%" type="range" min="0" max="25" value="0" />
+				</li>
+
+				<li>
+					<input class="slide_style" data-style="border-width" data-post="px" type="range" min="0" max="25" value="0" />
+				</li>
+
+				<li>
+					<input class="slide_style" data-style="background-color" maxlength="7" type="text" value="#808080" />
 				</li>
 			</ul>
 			<section id="slide"></section>

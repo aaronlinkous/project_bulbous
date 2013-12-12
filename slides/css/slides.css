@@ -61,13 +61,18 @@ html, body {
   animation: none !important;
 }
 
-/* line 1, ../scss/_slide_options.scss */
+/* line 1, ../scss/_slide_styles.scss */
 blockquote {
   font-style: italic;
   border-left: 2px solid #fff;
 }
 
-/* line 6, ../scss/_slide_options.scss */
+/* line 6, ../scss/_slide_styles.scss */
+.slide, #slide {
+  border: 0px solid green;
+}
+
+/* line 10, ../scss/_slide_styles.scss */
 .vert_t {
   -webkit-box-align: top;
   -moz-box-align: top;
@@ -80,7 +85,7 @@ blockquote {
   -ms-flex-align: top;
 }
 
-/* line 10, ../scss/_slide_options.scss */
+/* line 14, ../scss/_slide_styles.scss */
 .vert_c {
   -webkit-box-align: center;
   -moz-box-align: center;
@@ -93,7 +98,7 @@ blockquote {
   -ms-flex-align: center;
 }
 
-/* line 14, ../scss/_slide_options.scss */
+/* line 18, ../scss/_slide_styles.scss */
 .vert_b {
   -webkit-box-align: bottom;
   -moz-box-align: bottom;
@@ -106,7 +111,7 @@ blockquote {
   -ms-flex-align: bottom;
 }
 
-/* line 18, ../scss/_slide_options.scss */
+/* line 22, ../scss/_slide_styles.scss */
 .horiz_l {
   -webkit-box-pack: start;
   -moz-box-pack: start;
@@ -119,7 +124,7 @@ blockquote {
   -ms-flex-pack: start;
 }
 
-/* line 22, ../scss/_slide_options.scss */
+/* line 26, ../scss/_slide_styles.scss */
 .horiz_c {
   -webkit-box-pack: center;
   -moz-box-pack: center;
@@ -132,7 +137,7 @@ blockquote {
   -ms-flex-pack: center;
 }
 
-/* line 26, ../scss/_slide_options.scss */
+/* line 30, ../scss/_slide_styles.scss */
 .horiz_r {
   -webkit-box-pack: end;
   -moz-box-pack: end;

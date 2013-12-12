@@ -3,6 +3,10 @@ blockquote {
 	border-left: 2px solid #fff;
 }
 
+.slide, #slide {
+	border: 0px solid green;
+}
+
 .vert_t {
 	@include align-items(top);
 }
