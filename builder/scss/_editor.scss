@@ -1,61 +1,65 @@
-#wrapper {
-	@include size(100% 100%);
+blockquote {
+	border-left: 2px dotted #888;
+	padding-left: 5px;
+	background: #d0f0ff;
+}
 
-	blockquote {
-		border-left: 2px dotted #888;
-		padding-left: 5px;
-		background: #d0f0ff;
-	}
-	
-	#wmd-editor {
-		background-color: #333;
-		width: calc(#{$editor_width});
-		height: 100%;
-		float: left;
+#editor {
+	width: calc(#{$editor_width});
+	height: 100%;
+	float: left;
+}
 
-		textarea {
-			padding: 10px;
-			background-color: #333;
-			color: #fff;
-			font-family: arial;
-			font-size: 14px;
-			border: none;
-			width: 100%;
-			height: calc(100% - #{$editor_height});
-			outline: none;
-			resize: none;
-		}
-	}
+#presentation {
+	height: 100%;
+	width: calc(100% - #{$editor_width});
+	float: right;
+}
 
-	#wmd-preview {
-		width: calc(100% - #{$editor_width});
-		height: 100%;
-		float: right;
-		background: gray;
-	}
-	
-	#wmd-button-bar {
-		@include size(100% $button_height);
-		background-color: Silver; 
-	}
-	
-	.wmd-button-row {
-		@include size(100% $button_height);
-		margin: 0;
-		padding: 0px;
-	}
-	
-	.wmd-button {
-		width: 20px;
-		height: 20px;
-		padding-left: 2px;
-		padding-right: 3px;
-		display: inline-block;
-		list-style: none;
-		cursor: pointer;
-	}
-	
-	.wmd-button > span {
+#code {
+	padding: 10px;
+	background-color: #333;
+	color: #fff;
+	font-family: arial;
+	font-size: 14px;
+	border: none;
+	width: 100%;
+	height: calc(100% - #{$editor_height});
+	outline: none;
+	resize: none;
+}
+
+#slide {
+	width: 100%;
+	height: calc(100% - #{$editor_height});
+	float: right;
+	background: gray;
+}
+
+#code_options {
+	background: silver;
+	@include size(100% $button_height);
+	margin: 0;
+	padding: 0px;
+}
+
+#slide_options {
+	@include size(100% $button_height);
+	background-color: red;
+	margin: 0;
+	padding: 0;
+}
+
+.wmd-button {
+	width: 20px;
+	height: 20px;
+	padding-left: 2px;
+	padding-right: 3px;
+	display: inline-block;
+	list-style: none;
+	cursor: pointer;
+
+	> span {
 		background-image: url(../images/wmd-buttons.png);
 		background-repeat: no-repeat;
 		background-position: 0px 0px;
@@ -72,21 +76,21 @@
 .wmd-prompt-dialog {
 	border: 1px solid #999999;
 	background-color: #F5F5F5;
-}
 
-.wmd-prompt-dialog > div {
-	font-size: 0.8em;
-	font-family: arial, helvetica, sans-serif;
-}
+	> div {
+		font-size: 0.8em;
+		font-family: arial, helvetica, sans-serif;
+	}
 
-.wmd-prompt-dialog > form > input[type="text"] {
-	border: 1px solid #999999;
-	color: black;
-}
+	input[type="text"] {
+		border: 1px solid #999999;
+		color: black;
+	}
 
-.wmd-prompt-dialog > form > input[type="button"]{
-	border: 1px solid #888888;
-	font-family: trebuchet MS, helvetica, sans-serif;
-	font-size: 0.8em;
-	font-weight: bold;
+	input[type="button"]{
+		border: 1px solid #888888;
+		font-family: trebuchet MS, helvetica, sans-serif;
+		font-size: 0.8em;
+		font-weight: bold;
+	}
 }

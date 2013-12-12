@@ -298,9 +298,9 @@
     // and 8) and ONLY on button clicks.  Keyboard shortcuts work
     // normally since the focus never leaves the textarea.
     function PanelCollection(postfix) {
-        this.buttonBar = doc.getElementById("wmd-button-bar" + postfix);
-        this.preview = doc.getElementById("wmd-preview" + postfix);
-        this.input = doc.getElementById("wmd-input" + postfix);
+        this.buttonBar = doc.getElementById("code_options");
+        this.preview = doc.getElementById("slide");
+        this.input = doc.getElementById("code");
     };
 
     // Returns true if the DOM element is visible, false if it's hidden.
@@ -1375,22 +1375,10 @@
         }
 
         function makeSpritedButtonRow() {
-
             var buttonBar = panels.buttonBar;
-
-            var normalYShift = "0px";
-            var disabledYShift = "-20px";
-            var highlightYShift = "-40px";
-
-            var buttonRow = document.createElement("ul");
-            buttonRow.id = "wmd-button-row" + postfix;
-            buttonRow.className = 'wmd-button-row';
-            buttonRow = buttonBar.appendChild(buttonRow);
-            var xPosition = 0;
             var makeButton = function (id, title, textOp) {
                 var button = document.createElement("li");
                 button.className = "wmd-button";
-                xPosition += 25;
                 var buttonImage = document.createElement("span");
                 button.id = id + postfix;
                 button.appendChild(buttonImage);
@@ -1398,7 +1386,7 @@
                 if (textOp)
                     button.textOp = textOp;
                 setupButton(button, true);
-                buttonRow.appendChild(button);
+                buttonBar.appendChild(button);
                 return button;
             };
 

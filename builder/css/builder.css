@@ -41,25 +41,28 @@ html, body {
 }
 
 /* line 1, ../scss/_editor.scss */
-#wrapper {
-  width: 100%;
-  height: 100%;
-}
-/* line 4, ../scss/_editor.scss */
-#wrapper blockquote {
+blockquote {
   border-left: 2px dotted #888;
   padding-left: 5px;
   background: #d0f0ff;
 }
-/* line 10, ../scss/_editor.scss */
-#wrapper #wmd-editor {
-  background-color: #333;
+
+/* line 7, ../scss/_editor.scss */
+#editor {
   width: calc(500px);
   height: 100%;
   float: left;
 }
-/* line 16, ../scss/_editor.scss */
-#wrapper #wmd-editor textarea {
+
+/* line 13, ../scss/_editor.scss */
+#presentation {
+  height: 100%;
+  width: calc(100% - 500px);
+  float: right;
+}
+
+/* line 19, ../scss/_editor.scss */
+#code {
   padding: 10px;
   background-color: #333;
   color: #fff;
@@ -71,28 +74,35 @@ html, body {
   outline: none;
   resize: none;
 }
-/* line 30, ../scss/_editor.scss */
-#wrapper #wmd-preview {
-  width: calc(100% - 500px);
-  height: 100%;
+
+/* line 32, ../scss/_editor.scss */
+#slide {
+  width: 100%;
+  height: calc(100% - 100px);
   float: right;
   background: gray;
 }
-/* line 37, ../scss/_editor.scss */
-#wrapper #wmd-button-bar {
-  width: 100%;
-  height: 50px;
-  background-color: Silver;
-}
-/* line 42, ../scss/_editor.scss */
-#wrapper .wmd-button-row {
+
+/* line 39, ../scss/_editor.scss */
+#code_options {
+  background: silver;
   width: 100%;
   height: 50px;
   margin: 0;
   padding: 0px;
 }
-/* line 48, ../scss/_editor.scss */
-#wrapper .wmd-button {
+
+/* line 46, ../scss/_editor.scss */
+#slide_options {
+  width: 100%;
+  height: 50px;
+  background-color: red;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 53, ../scss/_editor.scss */
+.wmd-button {
   width: 20px;
   height: 20px;
   padding-left: 2px;
@@ -101,8 +111,8 @@ html, body {
   list-style: none;
   cursor: pointer;
 }
-/* line 58, ../scss/_editor.scss */
-#wrapper .wmd-button > span {
+/* line 62, ../scss/_editor.scss */
+.wmd-button > span {
   background-image: url(../images/wmd-buttons.png);
   background-repeat: no-repeat;
   background-position: 0px 0px;
@@ -111,31 +121,28 @@ html, body {
   display: inline-block;
 }
 
-/* line 68, ../scss/_editor.scss */
+/* line 72, ../scss/_editor.scss */
 .wmd-prompt-background {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* line 72, ../scss/_editor.scss */
+/* line 76, ../scss/_editor.scss */
 .wmd-prompt-dialog {
   border: 1px solid #999999;
   background-color: #F5F5F5;
 }
-
-/* line 77, ../scss/_editor.scss */
+/* line 80, ../scss/_editor.scss */
 .wmd-prompt-dialog > div {
   font-size: 0.8em;
   font-family: arial, helvetica, sans-serif;
 }
-
-/* line 82, ../scss/_editor.scss */
-.wmd-prompt-dialog > form > input[type="text"] {
+/* line 85, ../scss/_editor.scss */
+.wmd-prompt-dialog input[type="text"] {
   border: 1px solid #999999;
   color: black;
 }
-
-/* line 87, ../scss/_editor.scss */
-.wmd-prompt-dialog > form > input[type="button"] {
+/* line 90, ../scss/_editor.scss */
+.wmd-prompt-dialog input[type="button"] {
   border: 1px solid #888888;
   font-family: trebuchet MS, helvetica, sans-serif;
   font-size: 0.8em;

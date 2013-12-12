@@ -10,14 +10,17 @@
 		<script src="js/Markdown.Editor.js"></script>
 	</head>
 	<body>
-		<div id="wrapper">
-			<section id="wmd-editor">
-				<aside id="wmd-button-bar"></aside>
-				<textarea id="wmd-input" draggable="false"></textarea>
-			</section>
-	
-			<section id="wmd-preview"></section>
-		</div>
+
+		<section id="editor">
+			<ul id="code_options"></ul>
+			<textarea id="code" draggable="false"></textarea>
+		</section>
+
+		<section id="presentation">
+			<ul id="slide_options"></ul>
+			<section id="slide"></section>
+		</section>
+
 		<section id="controls"></section>
 		<section id="timeline"></section>
 
