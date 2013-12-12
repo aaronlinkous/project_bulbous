@@ -1,0 +1,28 @@
+blockquote {
+	font-style: italic;
+	border-left: 2px solid #fff;
+}
+
+.vert_t {
+	@include align-items(top);
+}
+
+.vert_c {
+	@include align-items(center);
+}
+
+.vert_b {
+	@include align-items(bottom);
+}
+
+.horiz_l {
+	@include justify-content(flex-start);
+}
+
+.horiz_c {
+	@include justify-content(center);
+}
+
+.horiz_r {
+	@include justify-content(flex-end);
+}

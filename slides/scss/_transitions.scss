@@ -24,7 +24,7 @@
 	}
 }
 
-#slide_wrapper .slide {
+#presentation .slide {
 	&[data-next-trans="fade_in"] {
 		+ .slide {
 			&.active {

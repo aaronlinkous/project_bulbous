@@ -1024,7 +1024,7 @@
         var background = doc.createElement("div"),
             style = background.style;
         
-        background.className = "wmd-prompt-background";
+        background.className = "prompt-background";
         
         style.position = "absolute";
         style.top = "0";
@@ -1100,7 +1100,7 @@
 
             // The main dialog box.
             dialog = doc.createElement("div");
-            dialog.className = "wmd-prompt-dialog";
+            dialog.className = "prompt-dialog";
             dialog.style.padding = "10px;";
             dialog.style.position = "fixed";
             dialog.style.width = "400px";
@@ -1214,6 +1214,13 @@
         util.addEvent(inputBox, keyEvent, function (key) {
 
             // Check to see if we have a button key and, if so execute the callback.
+
+
+///////														 ///////
+/////// comment this out if you dont want keyboard shortcuts ///////
+///////														 ///////
+
+
             if ((key.ctrlKey || key.metaKey) && !key.altKey && !key.shiftKey) {
 
                 var keyCode = key.charCode || key.keyCode;
@@ -1274,6 +1281,7 @@
                     window.event.returnValue = false;
                 }
             }
+
         });
 
         // Auto-indent on shift-enter
@@ -1378,7 +1386,7 @@
             var buttonBar = panels.buttonBar;
             var makeButton = function (id, title, textOp) {
                 var button = document.createElement("li");
-                button.className = "wmd-button";
+                button.className = "button";
                 var buttonImage = document.createElement("span");
                 button.id = id + postfix;
                 button.appendChild(buttonImage);
@@ -1390,32 +1398,32 @@
                 return button;
             };
 
-            buttons.bold = makeButton("wmd-bold-button", getString("bold"), bindCommand("doBold"));
-            buttons.italic = makeButton("wmd-italic-button", getString("italic"), bindCommand("doItalic"));
-            buttons.link = makeButton("wmd-link-button", getString("link"), bindCommand(function (chunk, postProcessing) {
+            buttons.bold = makeButton("bold-button", getString("bold"), bindCommand("doBold"));
+            buttons.italic = makeButton("italic-button", getString("italic"), bindCommand("doItalic"));
+            buttons.link = makeButton("link-button", getString("link"), bindCommand(function (chunk, postProcessing) {
                 return this.doLinkOrImage(chunk, postProcessing, false);
             }));
-            buttons.quote = makeButton("wmd-quote-button", getString("quote"), bindCommand("doBlockquote"));
-            buttons.code = makeButton("wmd-code-button", getString("code"), bindCommand("doCode"));
-            buttons.image = makeButton("wmd-image-button", getString("image"), bindCommand(function (chunk, postProcessing) {
+            buttons.quote = makeButton("quote-button", getString("quote"), bindCommand("doBlockquote"));
+            buttons.code = makeButton("code-button", getString("code"), bindCommand("doCode"));
+            buttons.image = makeButton("image-button", getString("image"), bindCommand(function (chunk, postProcessing) {
                 return this.doLinkOrImage(chunk, postProcessing, true);
             }));
-            buttons.olist = makeButton("wmd-olist-button", getString("olist"), bindCommand(function (chunk, postProcessing) {
+            buttons.olist = makeButton("olist-button", getString("olist"), bindCommand(function (chunk, postProcessing) {
                 this.doList(chunk, postProcessing, true);
             }));
-            buttons.ulist = makeButton("wmd-ulist-button", getString("ulist"), bindCommand(function (chunk, postProcessing) {
+            buttons.ulist = makeButton("ulist-button", getString("ulist"), bindCommand(function (chunk, postProcessing) {
                 this.doList(chunk, postProcessing, false);
             }));
-            buttons.heading = makeButton("wmd-heading-button", getString("heading"), bindCommand("doHeading"));
-            buttons.hr = makeButton("wmd-hr-button", getString("hr"), bindCommand("doHorizontalRule"));
-            buttons.undo = makeButton("wmd-undo-button", getString("undo"), null);
+            buttons.heading = makeButton("heading-button", getString("heading"), bindCommand("doHeading"));
+            buttons.hr = makeButton("hr-button", getString("hr"), bindCommand("doHorizontalRule"));
+            buttons.undo = makeButton("undo-button", getString("undo"), null);
             buttons.undo.execute = function (manager) { if (manager) manager.undo(); };
 
             var redoTitle = /win/.test(nav.platform.toLowerCase()) ?
                 getString("redo") :
                 getString("redomac"); // mac and other non-Windows platforms
 
-            buttons.redo = makeButton("wmd-redo-button", redoTitle, null);
+            buttons.redo = makeButton("redo-button", redoTitle, null);
             buttons.redo.execute = function (manager) { if (manager) manager.redo(); };
 
             setUndoRedoButtonStates();

@@ -3,6 +3,7 @@
 	<head>
 		<title>My Presentation</title>
 		<link rel="stylesheet" type="text/css" href="css/builder.css" media="screen" />
+		<link rel="stylesheet" type="text/css" href="../slides/css/slides.css" media="screen" />
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 		<script src="js/Markdown.Converter.js"></script>
@@ -17,7 +18,11 @@
 		</section>
 
 		<section id="presentation">
-			<ul id="slide_options"></ul>
+			<ul id="slide_options">
+				<li>
+					<input id="slide_margin" type="range" min="0" max="25%" value="0" />
+				</li>
+			</ul>
 			<section id="slide"></section>
 		</section>
 
