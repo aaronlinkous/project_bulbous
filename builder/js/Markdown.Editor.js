@@ -2158,15 +2158,15 @@
 		chunk.selection = chunk.selection.replace(/^(\s|>)+$/, "");
 
 		if(align == "l") {
-				chunk.startTag = "|--";
-	            chunk.selection = chunk.selection || this.getString("align_left_example");
-			} else if(align == "c") {
-				chunk.startTag = "-|-";
-	            chunk.selection = chunk.selection || this.getString("align_center_example");
-			} else {
-				chunk.startTag = "--|";
-	            chunk.selection = chunk.selection || this.getString("align_right_example");
-			}
+			chunk.startTag = "|--";
+			chunk.selection = chunk.selection || this.getString("align_left_example");
+		} else if(align == "c") {
+			chunk.startTag = "-|-";
+			chunk.selection = chunk.selection || this.getString("align_center_example");
+		} else {
+			chunk.startTag = "--|";
+			chunk.selection = chunk.selection || this.getString("align_right_example");
+		}
     };
 
     commandProto.doHorizontalRule = function (chunk, postProcessing) {
