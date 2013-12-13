@@ -7,28 +7,34 @@
 
 (function(Builder, $, undefined ) {
 	
-	var _styles = [];//private
-    
+	var _styles = {};//private
+	
 	Builder.slide_style = function (style_obj) {
 		var key = style_obj.style;
 		var value = (style_obj.post)?style_obj.val.concat(style_obj.post):style_obj.val;
 		if(!key) return false;
 		this.add_style(key, value);
-		if(_styles.length){
+		if(Object.keys(_styles).length){
 			this.render();
 		}
 	}
+	
+	Builder.cssString = function(){
+		return $.map(Object.getOwnPropertyNames(_styles), function(k) {
+			return [k, _styles[k]].join(':')
+		}).join(';').concat(';');
+	}
 
 	Builder.render = function(){
-		$("#slide_styles").html("#slide {" + _styles.join(';') + ";}");
+		$("#slide_styles").html("#slide {" + this.cssString()+ ";}");
 	}
 
 	Builder.add_style = function (key, value) {
-		_styles.push(key + ":" + value);
+		_styles[key] = value;
 	}
 	
 	Builder.styles = function(){
-		return _styles;   
+		return _styles;
 	}
 	
 	Builder.init = function(styles)
@@ -43,12 +49,17 @@
 }(window.Builder = window.Builder || {}, jQuery));
 
 
+
 $(document).ready(function(){
-	
-
-
 	//Mimic loading from server
-	var styles = [{style:'display',val:'none'},{style:'top',val:'10',post:'px'}];
+	var styles = [{
+		style:'display',
+		val:'none'
+	},{
+		style:'top',
+		val:'10',
+		post:'px'
+	}];
 	Builder.init(styles);
 	console.log("Applying Styles to Slide:",Builder.styles());
 
@@ -64,6 +75,6 @@ $(document).ready(function(){
 	});
 
 	$("#save").on("click", function(e) {
-		console.log("Saving Styles to DB:",Builder.styles());
+		console.log("Saving Styles to DB:",Builder.cssString(), Builder.styles());
 	});
 });
