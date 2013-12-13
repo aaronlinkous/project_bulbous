@@ -17,6 +17,7 @@
 		if(Object.keys(_styles).length){
 			this.render();
 		}
+		$("input[data-style='"+key+"']").val(style_obj.val);
 	}
 	
 	Builder.cssString = function(){
@@ -26,19 +27,18 @@
 	}
 
 	Builder.render = function(){
-		$("#slide_styles").html("#slide {" + this.cssString()+ ";}");
+		$("#slide_styles").html("#slide {" + this.cssString()+ "}");
 	}
 
 	Builder.add_style = function (key, value) {
 		_styles[key] = value;
 	}
 	
-	Builder.styles = function(){
+	Builder.styles = function() {
 		return _styles;
 	}
 	
-	Builder.init = function(styles)
-	{
+	Builder.init = function(styles) {
 		$.each(styles,function(index,style){
 			Builder.slide_style(style);
 		});
@@ -52,14 +52,6 @@
 
 $(document).ready(function(){
 	//Mimic loading from server
-	var styles = [{
-		style:'display',
-		val:'none'
-	},{
-		style:'top',
-		val:'10',
-		post:'px'
-	}];
 	Builder.init(styles);
 	console.log("Applying Styles to Slide:",Builder.styles());
 
