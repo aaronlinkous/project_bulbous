@@ -1,29 +1,29 @@
 (function(Slide, $, undefined ) {
-	this.current = 0;
+	Slide.current = 0;
 
 	Slide.change_hash = function(current) {
 		window.location.hash = "#"+current;
 	},
 	Slide.next = function(){
-		if(this.current < num) {
-			this.current++;
+		if(Slide.current < num) {
+			Slide.current++;
 			$(".active").removeClass("active viewed no_transition").addClass("viewed");
-			$(".slide:eq("+this.current+")").addClass("active");
+			$(".slide:eq("+Slide.current+")").addClass("active");
 		}
 
-		Slide.change_hash(this.current);
+		Slide.change_hash(Slide.current);
 	},
 	Slide.prev = function() {
-		if(this.current > 0) {
-			this.current--;
+		if(Slide.current > 0) {
+			Slide.current--;
 			$(".active").removeClass("active viewed no_transition");
-			$(".slide:eq("+this.current+")").removeClass("viewed").addClass("active no_transition");
+			$(".slide:eq("+Slide.current+")").removeClass("viewed").addClass("active no_transition");
 		}
 
-		Slide.change_hash(this.current);
+		Slide.change_hash(Slide.current);
 	},
 	Slide.jump = function(dir) {
-		this.current = dir;
+		Slide.current = dir;
 		$(".slide").removeClass("active viewed no_transition").each(function(){
 			if($(this).attr("data-slide") < dir) {
 				$(this).addClass("viewed");
@@ -32,7 +32,7 @@
 			}
 		});
 
-		Slide.change_hash(this.current);
+		Slide.change_hash(Slide.current);
 	}
 	
 }(window.Slide = window.Slide || {}, jQuery));

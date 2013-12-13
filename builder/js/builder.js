@@ -6,14 +6,14 @@
 })();
 
 (function(Builder, $, undefined ) {
-	var style_arr = {};
+	Builder.style_arr = {};
 
 	Builder.slide_style = function(style,val,post) {
 		styles = "";
-		style_arr[style] = val+post;
+		Builder.style_arr[style] = [val,post];
 
-		$.each(style_arr, function(style,val) {
-			styles += style+":"+val+";";
+		$.each(Builder.style_arr, function(style) {
+			styles += style+":"+Builder.style_arr[style][0]+Builder.style_arr[style][1]+";";
 		});
 
 		$("#slide_styles").html("#slide {"+styles+"}");
@@ -29,5 +29,9 @@ $(document).ready(function(){
 		post = $(this).attr("data-post") || "";
 
 		Builder.slide_style(style,val,post);
+	});
+
+	$("#save").on("click", function(e) {
+		console.log(Builder.style_arr);
 	});
 });

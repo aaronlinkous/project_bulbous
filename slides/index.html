@@ -31,8 +31,10 @@
 			var num = 4;
 
 			$(document).ready(function(){
-				hash = window.location.hash;
-				if(hash) Slide.jump(hash.replace("#",""));
+				hash = window.location.hash.replace("#","");
+				hash = $(".slide[data-slide='"+hash+"']").length ? hash : 0;
+
+				if(hash) Slide.jump(hash);
 			}).keydown(function(e){
 				switch(e.keyCode) {
 					case 37:
