@@ -11,9 +11,6 @@
 		<script src="js/Markdown.Editor.js"></script>
 	</head>
 	<body>
-
-		<style id="slide_styles"></style>
-
 		<section id="editor">
 			<ul id="code_options"></ul>
 			<textarea id="code" draggable="false"></textarea>
@@ -43,6 +40,11 @@
 		<section id="controls"></section>
 		<section id="timeline"></section>
 
+		<!-- Everything from here down is controlled by builder.js -->
 		<script src="js/builder.js"></script>
+		<style id="slide_styles"></style>
+		<script>
+			Builder.style_arr = {};
+		</script>
 	</body>
 </html>
