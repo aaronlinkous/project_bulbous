@@ -47,6 +47,13 @@
 
         hr: "Horizontal Rule <hr> Ctrl+R",
 
+        align_left: "Align Left",
+		align_left_example: "Aligned Left Text",
+        align_center: "Align Center",
+		align_center_example: "Aligned Center Text",
+        align_right: "Align Right",
+		align_right_example: "Aligned Right Text",
+
         undo: "Undo - Ctrl+Z",
         redo: "Redo - Ctrl+Y",
         redomac: "Redo - Ctrl+Shift+Z",
@@ -299,7 +306,7 @@
     // normally since the focus never leaves the textarea.
     function PanelCollection(postfix) {
         this.buttonBar = doc.getElementById("code_options");
-        this.preview = doc.getElementById("slide");
+        this.preview = doc.getElementById("content");
         this.input = doc.getElementById("code");
     };
 
@@ -1426,6 +1433,10 @@
             buttons.redo = makeButton("redo-button", redoTitle, null);
             buttons.redo.execute = function (manager) { if (manager) manager.redo(); };
 
+            buttons.align_left = makeButton("align-left-button", getString("align_left"), bindCommand("doAlign_left"));
+            buttons.align_center = makeButton("align-center-button", getString("align_center"), bindCommand("doAlign_center"));
+            buttons.align_right = makeButton("align-right-button", getString("align_right"), bindCommand("doAlign_right"));
+
             setUndoRedoButtonStates();
         }
 
@@ -2116,6 +2127,46 @@
                 chunk.endTag += headerChar;
             }
         }
+    };
+
+	commandProto.doAlign_left = function (chunk, postProcessing) {
+        return this.doAlignment(chunk, postProcessing, "l");
+    };
+
+	commandProto.doAlign_center = function (chunk, postProcessing) {
+        return this.doAlignment(chunk, postProcessing, "c");
+    };
+
+	commandProto.doAlign_right = function (chunk, postProcessing) {
+        return this.doAlignment(chunk, postProcessing, "r");
+    };
+
+    commandProto.doAlignment = function (chunk, postProcessing, align) {
+		chunk.selection = chunk.selection.replace(/^(\n*)([^\r]+?)(\n*)$/,
+		function (totalMatch, newlinesBefore, text, newlinesAfter) {
+			chunk.before += newlinesBefore;
+			chunk.after = newlinesAfter + chunk.after;
+			return text;
+		});
+		
+		chunk.before = chunk.before.replace(/(>[ \t]*)$/,
+			function (totalMatch, blankLine) {
+				chunk.selection = blankLine + chunk.selection;
+				return "";
+		});
+
+		chunk.selection = chunk.selection.replace(/^(\s|>)+$/, "");
+
+		if(align == "l") {
+				chunk.startTag = "|--";
+	            chunk.selection = chunk.selection || this.getString("align_left_example");
+			} else if(align == "c") {
+				chunk.startTag = "-|-";
+	            chunk.selection = chunk.selection || this.getString("align_center_example");
+			} else {
+				chunk.startTag = "--|";
+	            chunk.selection = chunk.selection || this.getString("align_right_example");
+			}
     };
 
     commandProto.doHorizontalRule = function (chunk, postProcessing) {
