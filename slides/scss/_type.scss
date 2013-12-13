@@ -1,0 +1,60 @@
+.slide {
+	h1, h2, h3, h4, h5, h6, li, p {
+		@extend %smooth;
+		@extend %font;
+		margin-top: 0;
+	}
+	
+	h1, h2 {
+		color: $dark_color;
+		font-size: 5rem;
+		font-weight: 500;
+		line-height: 1em;
+	
+		&.light {
+			color: $light_color;
+		}
+	}
+	
+	h1 {
+		font-family: $headline_font;
+		text-transform: uppercase;
+	}
+	
+	h2 {
+		font-size: 1.5rem;
+		line-height: 1.5em;
+		font-weight: 700;
+	}
+	
+	h3, h4, h5, h6 {
+		font-size: 1em;
+	}
+	
+	ul {
+		margin-top: 0;
+		padding-left: 1em;
+	}
+	
+	li, p {
+		font-size: 1em;
+		margin: 0 0 1.5em 0;
+	
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	
+	li {
+		margin-bottom: 0;
+	}
+	
+	a {
+		color: $accent_color;
+		text-decoration: none;
+	
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}

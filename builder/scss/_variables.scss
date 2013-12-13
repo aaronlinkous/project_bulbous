@@ -1,6 +1,12 @@
+$light_color: #f0f0f0;
+$ghosted_color: #8a8a95;
+$dark_color: #2d3244;
+$accent_color: #08c882;
+
 $ratio: 1.6;
 $font_size: 16px;
-$mobile_font_size: 14px;
+$line_height: floor($font_size*$ratio);
+$headline_font: "din-condensed-web",sans-serif;
 
 $editor_width: 500px;
 $control_height: 50px;
@@ -23,4 +29,12 @@ $mobile_p: 360px;
 
 %animated {
 	@include transition(all 0.5s ease-in-out);
+}
+
+%font {
+	@extend %smooth;
+	font-family: "museo-sans-rounded", sans-serif;
+	font-weight: 500;
+	color: $dark_color;
+	line-height: $line_height;
 }
