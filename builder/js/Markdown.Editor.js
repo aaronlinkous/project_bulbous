@@ -114,6 +114,7 @@
         var hooks = this.hooks = new Markdown.HookCollection();
         hooks.addNoop("onPreviewRefresh");       // called with no arguments after the preview has been refreshed
         hooks.addNoop("postBlockquoteCreation"); // called with the user's selection *after* the blockquote was created; should return the actual to-be-inserted text
+        hooks.addNoop("post_alignment");         // called with the user's selection *after* the alignment was created; should return the actual to-be-inserted text
         hooks.addFalse("insertImageDialog");     /* called with one parameter: a callback to be called with the URL of the image. If the application creates
                                                   * its own image insertion dialog, this hook should return true, and the callback should be called with the chosen
                                                   * image url (or null if the user cancelled). If this hook returns false, the default dialog will be used.
@@ -1459,7 +1460,7 @@
     var commandProto = CommandManager.prototype;
 
     // The markdown symbols - 4 spaces = code, > = blockquote, etc.
-    commandProto.prefixes = "(?:\\s{4,}|\\s*>|\\s*-\\s+|\\s*\\d+\\.|=|\\+|-|_|\\*|#|\\s*\\[[^\n]]+\\]:)";
+    commandProto.prefixes = "(?:\\s{4,}|\\s*>|\\s*-\\s+|\\s*\\d+\\.|=|\\+|-|_|\\*|#|\\s*\\[[^\n]]+\\]|\|--:)";
 
     // Remove markdown symbols from the chunk selection.
     commandProto.unwrap = function (chunk) {
@@ -2149,24 +2150,122 @@
 			return text;
 		});
 		
-		chunk.before = chunk.before.replace(/(>[ \t]*)$/,
+		chunk.before = chunk.before.replace(/(\|--|-\|-[ \t]*)$/,
 			function (totalMatch, blankLine) {
 				chunk.selection = blankLine + chunk.selection;
 				return "";
 		});
 
-		chunk.selection = chunk.selection.replace(/^(\s|>)+$/, "");
+		chunk.selection = chunk.selection.replace(/^(\s|\|--|-\|-)+$/, "");
 
 		if(align == "l") {
-			chunk.startTag = "|--";
+			chunk.startTag = "|-- ";
 			chunk.selection = chunk.selection || this.getString("align_left_example");
 		} else if(align == "c") {
-			chunk.startTag = "-|-";
+			chunk.startTag = "-|- ";
 			chunk.selection = chunk.selection || this.getString("align_center_example");
 		} else {
-			chunk.startTag = "--|";
+			chunk.startTag = "--| ";
 			chunk.selection = chunk.selection || this.getString("align_right_example");
 		}
+
+		align_tag = chunk.startTag;
+
+			var match = "",
+            leftOver = "",
+            line;
+        if (chunk.before) {
+            var lines = chunk.before.replace(/\n$/, "").split("\n");
+            var inChain = false;
+            for (var i = 0; i < lines.length; i++) {
+                var good = false;
+                line = lines[i];
+                inChain = inChain && line.length > 0; // c) any non-empty line continues the chain
+                if (/^\|--|-\|-/.test(line)) {                // a)
+                    good = true;
+                    if (!inChain && line.length > 1)  // c) any line that starts with ">" and has at least one more character starts the chain
+                        inChain = true;
+                } else if (/^[ \t]*$/.test(line)) {   // b)
+                    good = true;
+                } else {
+                    good = inChain;                   // c) the line is not empty and does not start with ">", so it matches if and only if we're in the chain
+                }
+                if (good) {
+                    match += line + "\n";
+                } else {
+                    leftOver += match + line;
+                    match = "\n";
+                }
+            }
+            if (!/(^|\n)\|--|-\|-/.test(match)) {             // d)
+                leftOver += match;
+                match = "";
+            }
+        }
+
+
+        chunk.startTag = match;
+        chunk.before = leftOver;
+
+        // end of change
+
+        if (chunk.after) {
+            chunk.after = chunk.after.replace(/^\n?/, "\n");
+        }
+
+        chunk.after = chunk.after.replace(/^(((\n|^)(\n[ \t]*)*\|--|-\|-(.+\n)*.*)+(\n[ \t]*)*)/,
+            function (totalMatch) {
+                chunk.endTag = totalMatch;
+                return "";
+            }
+        );
+
+
+        var replaceBlanksInTags = function (useBracket) {
+            var replacement = useBracket ? align_tag : "";
+
+            if (chunk.startTag) {
+                chunk.startTag = chunk.startTag.replace(/\n((\|--|-\|-|\s)*)\n$/,
+                    function (totalMatch, markdown) {
+                        return "\n" + markdown.replace(/^[ ]{0,3}\|--|-\|-?[ \t]*$/gm, replacement) + "\n";
+                    });
+            }
+            if (chunk.endTag) {
+                chunk.endTag = chunk.endTag.replace(/^\n((\|--|-\|-|\s)*)\n/,
+                    function (totalMatch, markdown) {
+                        return "\n" + markdown.replace(/^[ ]{0,3}\|--|-\|-?[ \t]*$/gm, replacement) + "\n";
+                    });
+            }
+        };
+
+        if (/^(?![ ]{0,3}\|--|-\|-)/m.test(chunk.selection)) {
+            this.wrap(chunk, SETTINGS.lineLength - 2);
+            chunk.selection = chunk.selection.replace(/^/gm, align_tag);
+            replaceBlanksInTags(true);
+            chunk.skipLines();
+        } else {
+            chunk.selection = chunk.selection.replace(/^[ ]{0,3}\|--|-\|- ?/gm, "");
+            this.unwrap(chunk);
+            replaceBlanksInTags(false);
+
+            if (!/^(\n|^)[ ]{0,3}\|--|-\|-/.test(chunk.selection) && chunk.startTag) {
+                chunk.startTag = chunk.startTag.replace(/\n{0,2}$/, "\n\n");
+            }
+
+            if (!/(\n|^)[ ]{0,3}\|--|-\|-.*$/.test(chunk.selection) && chunk.endTag) {
+                chunk.endTag = chunk.endTag.replace(/^\n{0,2}/, "\n\n");
+            }
+        }
+
+        chunk.selection = this.hooks.post_alignment(chunk.selection,align);
+
+		if (!/\n/.test(chunk.selection)) {
+            chunk.selection = chunk.selection.replace(/^(\|--|-\|- *)/,
+            function (wholeMatch, blanks) {
+                chunk.startTag += blanks;
+                return "";
+            });
+        }
     };
 
     commandProto.doHorizontalRule = function (chunk, postProcessing) {

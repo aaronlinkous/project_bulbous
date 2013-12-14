@@ -72,6 +72,11 @@
 .slide a:hover {
   text-decoration: none;
 }
+/* line 61, ../scss/_type.scss */
+.slide align_left {
+  background-color: purple;
+  display: block;
+}
 
 /* line 1, ../scss/_core.scss */
 * {
