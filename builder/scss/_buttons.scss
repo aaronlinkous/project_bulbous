@@ -1,0 +1,26 @@
+#style_padding {
+	background: red;
+
+	.drop_down_content {
+		right: calc(50% - 100px);
+		width: 200px;
+	}
+}
+
+#style_border {
+	background: green;
+
+	.drop_down_content {
+		right: calc(50% - 100px);
+		width: 200px;
+	}
+}
+
+#style_background_color {
+	background: blue;
+
+	.drop_down_content {
+		right: calc(50% - 100px);
+		width: 200px;
+	}
+}

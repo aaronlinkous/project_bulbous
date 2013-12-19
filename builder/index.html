@@ -18,20 +18,28 @@
 
 		<section id="presentation">
 			<ul id="slide_options">
-				<li>
-					<input class="slide_style" data-style="padding" data-post="%" type="range" min="0" max="37.5" value="0" />
+				<li class="btn" id="style_padding">
+					<input type="checkbox" class="drop_down" />
+					<div class="drop_down_content">
+						Padding
+						<input class="slide_style" data-style="padding" data-post="%" type="range" min="0" max="37.5" value="0" />
+					</div>
 				</li>
 
-				<li>
-					<input class="slide_style" data-style="border-width" data-post="px" type="range" min="0" max="25" value="0" />
+				<li class="btn" id="style_border">
+					<input type="checkbox" class="drop_down" />
+					<div class="drop_down_content">
+						Border
+						<input class="slide_style" data-style="border-width" data-post="px" type="range" min="0" max="25" value="0" />
+					</div>
 				</li>
 
-				<li>
-					<input class="slide_style" data-style="background-color" maxlength="7" type="text" value="#808080" />
-				</li>
-
-				<li>
-					<button id="save">Save</button>
+				<li class="btn" id="style_background_color">
+					<input type="checkbox" class="drop_down" />
+					<div class="drop_down_content">
+						Background Color
+						<input class="slide_style" data-style="background-color" maxlength="7" type="text" value="#808080" />
+					</div>
 				</li>
 			</ul>
 			<section id="slide" class="slide active">
@@ -39,7 +47,9 @@
 			</section>
 		</section>
 
-		<section id="controls"></section>
+		<section id="controls">
+			<button id="save">Save</button>
+		</section>
 		<section id="timeline"></section>
 
 		<!-- Everything from here down is controlled by builder.js -->

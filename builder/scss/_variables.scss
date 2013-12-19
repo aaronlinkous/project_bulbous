@@ -1,7 +1,6 @@
-$light_color: #f0f0f0;
-$ghosted_color: #8a8a95;
-$dark_color: #2d3244;
-$accent_color: #08c882;
+$code_color: #edf2f6;
+$button_bg: #4a4f65;
+$accent_color: #1fe48a;
 
 $ratio: 1.6;
 $font_size: 16px;
@@ -35,6 +34,5 @@ $mobile_p: 360px;
 	@extend %smooth;
 	font-family: "museo-sans-rounded", sans-serif;
 	font-weight: 500;
-	color: $dark_color;
 	line-height: $line_height;
 }

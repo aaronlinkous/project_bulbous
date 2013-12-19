@@ -30,10 +30,12 @@ html, body {
 }
 
 #code {
+	@extend %smooth;
+	background-color: darken($button_bg, 20%);
+	color: $code_color;
 	padding: 10px;
-	background-color: #333;
-	color: #fff;
-	font-family: arial;
+	font-family: "Courier","Lucida Grande","Myriad Pro", arial;
+	font-weight: 700;
 	font-size: 14px;
 	border: none;
 	width: 100%;
@@ -51,18 +53,56 @@ html, body {
 
 #code_options {
 	@include size(100% $button_height);
-	background: silver;
+	background-color: $button_bg;
+	list-style: none;
 	margin: 0;
-	padding: 0px;
+	padding: 0;
 }
 
 #slide_options {
 	@include size(100% $button_height);
+	background-color: $button_bg;
 	list-style: none;
-	background-color: teal;
 	margin: 0;
 	padding: 0;
 }
+
+.btn {
+	@include size($button_height $button_height);
+	float: left;
+	position: relative;
+
+	.drop_down {
+		@include size(100% 100%);
+		opacity: 0;
+		
+		+ .drop_down_content {
+			@include position(absolute, $button_height+3px 0 0 0);
+			text-align: center;
+			color: $button_bg;
+			background-color: rgba($code_color, .85);
+			padding: 5px;
+			border-radius: 3px;
+			display: none;
+
+			&:after {
+				@include position(absolute, -10px 0 0 0);
+				border-style: solid;
+				border-width: 0 8px 10px 8px;
+				border-color: transparent transparent rgba($code_color, .85) transparent;
+				right: calc(50% - 8px);
+				content: " ";
+				background-color: transparent;
+			}
+		}
+	
+		&:checked + .drop_down_content {
+			display: block;
+		}
+	}
+}
+
+
 
 .button {
 	width: 20px;
@@ -70,7 +110,6 @@ html, body {
 	padding-left: 2px;
 	padding-right: 3px;
 	display: inline-block;
-	list-style: none;
 	cursor: pointer;
 
 	> span {

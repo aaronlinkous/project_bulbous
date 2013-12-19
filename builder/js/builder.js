@@ -8,7 +8,7 @@
 (function(Builder, $, undefined ) {
 	var _styles = {};
 
-	Builder.slide_style = function (style_obj) {
+	Builder.slide_style = function(style_obj) {
 		var key = style_obj.style;
 		var value = (style_obj.post)?style_obj.val.concat(style_obj.post):style_obj.val;
 		if(!key) return false;
@@ -60,5 +60,9 @@ $(document).ready(function(){
 
 	$("#save").on("click", function(e) {
 		console.log("Saving Styles to DB:",Builder.cssString(), Builder.styles());
+	});
+
+	$(".btn > input").on("click", function(e) {
+		$(".btn > input").not($(e.target)).prop("checked", false);
 	});
 });

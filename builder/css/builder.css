@@ -1,19 +1,28 @@
-/* line 1, /Applications/MAMP/htdocs/project_bulbous/builder/scss/_core.scss */
+/* line 21, ../scss/_variables.scss */
+#code {
+  -webkit-font-smoothing: antialiased;
+  -webkit-font-feature-settings: 'liga', 'dlig';
+  -moz-font-feature-settings: 'liga', 'dlig';
+  font-feature-settings: 'liga', 'dlig';
+  text-rendering: optimizeLegibility;
+}
+
+/* line 1, ../scss/_core.scss */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 4, /Applications/MAMP/htdocs/project_bulbous/builder/scss/_core.scss */
+/* line 4, ../scss/_core.scss */
 *::selection {
-  background: rgba(8, 200, 130, 0.5);
+  background: rgba(31, 228, 138, 0.5);
 }
-/* line 8, /Applications/MAMP/htdocs/project_bulbous/builder/scss/_core.scss */
+/* line 8, ../scss/_core.scss */
 *::-moz-selection {
-  background: rgba(8, 200, 130, 0.5);
+  background: rgba(31, 228, 138, 0.5);
 }
 
-/* line 14, /Applications/MAMP/htdocs/project_bulbous/builder/scss/_core.scss */
+/* line 14, ../scss/_core.scss */
 html, body {
   width: 100%;
   height: 100%;
@@ -21,26 +30,27 @@ html, body {
   padding: 0;
 }
 
-/* line 20, /Applications/MAMP/htdocs/project_bulbous/builder/scss/_core.scss */
+/* line 20, ../scss/_core.scss */
 #editor {
   width: calc(500px);
   height: 100%;
   float: left;
 }
 
-/* line 26, /Applications/MAMP/htdocs/project_bulbous/builder/scss/_core.scss */
+/* line 26, ../scss/_core.scss */
 #presentation {
   height: 100%;
   width: calc(100% - 500px);
   float: right;
 }
 
-/* line 32, /Applications/MAMP/htdocs/project_bulbous/builder/scss/_core.scss */
+/* line 32, ../scss/_core.scss */
 #code {
+  background-color: #1f212a;
+  color: #edf2f6;
   padding: 10px;
-  background-color: #333;
-  color: #fff;
-  font-family: arial;
+  font-family: "Courier","Lucida Grande","Myriad Pro", arial;
+  font-weight: 700;
   font-size: 14px;
   border: none;
   width: 100%;
@@ -49,7 +59,7 @@ html, body {
   resize: none;
 }
 
-/* line 45, /Applications/MAMP/htdocs/project_bulbous/builder/scss/_core.scss */
+/* line 47, ../scss/_core.scss */
 #slide {
   width: 100%;
   height: calc(100% - 100px);
@@ -57,36 +67,76 @@ html, body {
   background: gray;
 }
 
-/* line 52, /Applications/MAMP/htdocs/project_bulbous/builder/scss/_core.scss */
+/* line 54, ../scss/_core.scss */
 #code_options {
   width: 100%;
   height: 50px;
-  background: silver;
-  margin: 0;
-  padding: 0px;
-}
-
-/* line 59, /Applications/MAMP/htdocs/project_bulbous/builder/scss/_core.scss */
-#slide_options {
-  width: 100%;
-  height: 50px;
+  background-color: #4a4f65;
   list-style: none;
-  background-color: teal;
   margin: 0;
   padding: 0;
 }
 
-/* line 67, /Applications/MAMP/htdocs/project_bulbous/builder/scss/_core.scss */
+/* line 62, ../scss/_core.scss */
+#slide_options {
+  width: 100%;
+  height: 50px;
+  background-color: #4a4f65;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 70, ../scss/_core.scss */
+.btn {
+  width: 50px;
+  height: 50px;
+  float: left;
+  position: relative;
+}
+/* line 75, ../scss/_core.scss */
+.btn .drop_down {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+/* line 79, ../scss/_core.scss */
+.btn .drop_down + .drop_down_content {
+  position: absolute;
+  top: 53px;
+  text-align: center;
+  color: #4a4f65;
+  background-color: rgba(237, 242, 246, 0.85);
+  padding: 5px;
+  border-radius: 3px;
+  display: none;
+}
+/* line 88, ../scss/_core.scss */
+.btn .drop_down + .drop_down_content:after {
+  position: absolute;
+  top: -10px;
+  border-style: solid;
+  border-width: 0 8px 10px 8px;
+  border-color: transparent transparent rgba(237, 242, 246, 0.85) transparent;
+  right: calc(50% - 8px);
+  content: " ";
+  background-color: transparent;
+}
+/* line 99, ../scss/_core.scss */
+.btn .drop_down:checked + .drop_down_content {
+  display: block;
+}
+
+/* line 107, ../scss/_core.scss */
 .button {
   width: 20px;
   height: 20px;
   padding-left: 2px;
   padding-right: 3px;
   display: inline-block;
-  list-style: none;
   cursor: pointer;
 }
-/* line 76, /Applications/MAMP/htdocs/project_bulbous/builder/scss/_core.scss */
+/* line 115, ../scss/_core.scss */
 .button > span {
   background-image: url(../images/wmd-buttons.png);
   background-repeat: no-repeat;
@@ -96,27 +146,27 @@ html, body {
   display: inline-block;
 }
 
-/* line 86, /Applications/MAMP/htdocs/project_bulbous/builder/scss/_core.scss */
+/* line 125, ../scss/_core.scss */
 .prompt-background {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* line 90, /Applications/MAMP/htdocs/project_bulbous/builder/scss/_core.scss */
+/* line 129, ../scss/_core.scss */
 .prompt-dialog {
   border: 1px solid #999999;
   background-color: #F5F5F5;
 }
-/* line 94, /Applications/MAMP/htdocs/project_bulbous/builder/scss/_core.scss */
+/* line 133, ../scss/_core.scss */
 .prompt-dialog > div {
   font-size: 0.8em;
   font-family: arial, helvetica, sans-serif;
 }
-/* line 99, /Applications/MAMP/htdocs/project_bulbous/builder/scss/_core.scss */
+/* line 138, ../scss/_core.scss */
 .prompt-dialog input[type="text"] {
   border: 1px solid #999999;
   color: black;
 }
-/* line 104, /Applications/MAMP/htdocs/project_bulbous/builder/scss/_core.scss */
+/* line 143, ../scss/_core.scss */
 .prompt-dialog input[type="button"] {
   border: 1px solid #888888;
   font-family: trebuchet MS, helvetica, sans-serif;
@@ -124,7 +174,7 @@ html, body {
   font-weight: bold;
 }
 
-/* line 112, /Applications/MAMP/htdocs/project_bulbous/builder/scss/_core.scss */
+/* line 151, ../scss/_core.scss */
 #controls {
   position: fixed;
   right: 0px;
@@ -135,7 +185,7 @@ html, body {
   background-color: blue;
 }
 
-/* line 118, /Applications/MAMP/htdocs/project_bulbous/builder/scss/_core.scss */
+/* line 157, ../scss/_core.scss */
 #timeline {
   position: fixed;
   top: 100%;
@@ -145,8 +195,38 @@ html, body {
   height: 150px;
   background: red;
 }
-/* line 123, /Applications/MAMP/htdocs/project_bulbous/builder/scss/_core.scss */
+/* line 162, ../scss/_core.scss */
 #timeline.open {
   top: auto;
   bottom: 50px;
+}
+
+/* line 1, ../scss/_buttons.scss */
+#style_padding {
+  background: red;
+}
+/* line 4, ../scss/_buttons.scss */
+#style_padding .drop_down_content {
+  right: calc(50% - 100px);
+  width: 200px;
+}
+
+/* line 10, ../scss/_buttons.scss */
+#style_border {
+  background: green;
+}
+/* line 13, ../scss/_buttons.scss */
+#style_border .drop_down_content {
+  right: calc(50% - 100px);
+  width: 200px;
+}
+
+/* line 19, ../scss/_buttons.scss */
+#style_background_color {
+  background: blue;
+}
+/* line 22, ../scss/_buttons.scss */
+#style_background_color .drop_down_content {
+  right: calc(50% - 100px);
+  width: 200px;
 }
