@@ -1,5 +1,7 @@
 #style_padding {
-	background: red;
+	.icon {
+		background: teal;
+	}
 
 	.drop_down_content {
 		right: calc(50% - 100px);
@@ -8,7 +10,9 @@
 }
 
 #style_border {
-	background: green;
+	.icon {
+		background: green;
+	}
 
 	.drop_down_content {
 		right: calc(50% - 100px);
@@ -17,7 +21,9 @@
 }
 
 #style_background_color {
-	background: blue;
+	.icon {
+		background: blue;
+	}
 
 	.drop_down_content {
 		right: calc(50% - 100px);

@@ -98,10 +98,20 @@ html, body {
 .btn .drop_down {
   width: 100%;
   height: 100%;
+  position: absolute;
+  top: 0px;
+  z-index: 1;
   opacity: 0;
 }
-/* line 79, ../scss/_core.scss */
-.btn .drop_down + .drop_down_content {
+/* line 80, ../scss/_core.scss */
+.btn .drop_down + .icon {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+}
+/* line 85, ../scss/_core.scss */
+.btn .drop_down ~ .drop_down_content {
   position: absolute;
   top: 53px;
   text-align: center;
@@ -111,8 +121,8 @@ html, body {
   border-radius: 3px;
   display: none;
 }
-/* line 88, ../scss/_core.scss */
-.btn .drop_down + .drop_down_content:after {
+/* line 94, ../scss/_core.scss */
+.btn .drop_down ~ .drop_down_content:after {
   position: absolute;
   top: -10px;
   border-style: solid;
@@ -122,12 +132,16 @@ html, body {
   content: " ";
   background-color: transparent;
 }
-/* line 99, ../scss/_core.scss */
-.btn .drop_down:checked + .drop_down_content {
+/* line 106, ../scss/_core.scss */
+.btn .drop_down:checked + .icon {
+  background-color: red !important;
+}
+/* line 110, ../scss/_core.scss */
+.btn .drop_down:checked ~ .drop_down_content {
   display: block;
 }
 
-/* line 107, ../scss/_core.scss */
+/* line 119, ../scss/_core.scss */
 .button {
   width: 20px;
   height: 20px;
@@ -136,7 +150,7 @@ html, body {
   display: inline-block;
   cursor: pointer;
 }
-/* line 115, ../scss/_core.scss */
+/* line 127, ../scss/_core.scss */
 .button > span {
   background-image: url(../images/wmd-buttons.png);
   background-repeat: no-repeat;
@@ -146,27 +160,27 @@ html, body {
   display: inline-block;
 }
 
-/* line 125, ../scss/_core.scss */
+/* line 137, ../scss/_core.scss */
 .prompt-background {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* line 129, ../scss/_core.scss */
+/* line 141, ../scss/_core.scss */
 .prompt-dialog {
   border: 1px solid #999999;
   background-color: #F5F5F5;
 }
-/* line 133, ../scss/_core.scss */
+/* line 145, ../scss/_core.scss */
 .prompt-dialog > div {
   font-size: 0.8em;
   font-family: arial, helvetica, sans-serif;
 }
-/* line 138, ../scss/_core.scss */
+/* line 150, ../scss/_core.scss */
 .prompt-dialog input[type="text"] {
   border: 1px solid #999999;
   color: black;
 }
-/* line 143, ../scss/_core.scss */
+/* line 155, ../scss/_core.scss */
 .prompt-dialog input[type="button"] {
   border: 1px solid #888888;
   font-family: trebuchet MS, helvetica, sans-serif;
@@ -174,7 +188,7 @@ html, body {
   font-weight: bold;
 }
 
-/* line 151, ../scss/_core.scss */
+/* line 163, ../scss/_core.scss */
 #controls {
   position: fixed;
   right: 0px;
@@ -185,7 +199,7 @@ html, body {
   background-color: blue;
 }
 
-/* line 157, ../scss/_core.scss */
+/* line 169, ../scss/_core.scss */
 #timeline {
   position: fixed;
   top: 100%;
@@ -195,37 +209,37 @@ html, body {
   height: 150px;
   background: red;
 }
-/* line 162, ../scss/_core.scss */
+/* line 174, ../scss/_core.scss */
 #timeline.open {
   top: auto;
   bottom: 50px;
 }
 
-/* line 1, ../scss/_buttons.scss */
-#style_padding {
-  background: red;
+/* line 2, ../scss/_buttons.scss */
+#style_padding .icon {
+  background: teal;
 }
-/* line 4, ../scss/_buttons.scss */
+/* line 6, ../scss/_buttons.scss */
 #style_padding .drop_down_content {
   right: calc(50% - 100px);
   width: 200px;
 }
 
-/* line 10, ../scss/_buttons.scss */
-#style_border {
+/* line 13, ../scss/_buttons.scss */
+#style_border .icon {
   background: green;
 }
-/* line 13, ../scss/_buttons.scss */
+/* line 17, ../scss/_buttons.scss */
 #style_border .drop_down_content {
   right: calc(50% - 100px);
   width: 200px;
 }
 
-/* line 19, ../scss/_buttons.scss */
-#style_background_color {
+/* line 24, ../scss/_buttons.scss */
+#style_background_color .icon {
   background: blue;
 }
-/* line 22, ../scss/_buttons.scss */
+/* line 28, ../scss/_buttons.scss */
 #style_background_color .drop_down_content {
   right: calc(50% - 100px);
   width: 200px;
