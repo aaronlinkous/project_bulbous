@@ -1,32 +1,21 @@
+#undo-button,#redo-button,hr-button {
+	display: none;
+}
+
 #style_padding {
 	.icon {
-		background: teal;
-	}
-
-	.drop_down_content {
-		right: calc(50% - 100px);
-		width: 200px;
+/* 		background: teal; */
 	}
 }
 
 #style_border {
 	.icon {
-		background: green;
-	}
-
-	.drop_down_content {
-		right: calc(50% - 100px);
-		width: 200px;
+/* 		background: green; */
 	}
 }
 
 #style_background_color {
 	.icon {
-		background: blue;
-	}
-
-	.drop_down_content {
-		right: calc(50% - 100px);
-		width: 200px;
+/* 		background: blue; */
 	}
 }

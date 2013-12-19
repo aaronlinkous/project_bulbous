@@ -54,7 +54,7 @@ html, body {
   font-size: 14px;
   border: none;
   width: 100%;
-  height: calc(100% - 100px);
+  height: calc(100% - 88px);
   outline: none;
   resize: none;
 }
@@ -62,7 +62,7 @@ html, body {
 /* line 47, ../scss/_core.scss */
 #slide {
   width: 100%;
-  height: calc(100% - 100px);
+  height: calc(100% - 88px);
   float: right;
   background: gray;
 }
@@ -70,7 +70,7 @@ html, body {
 /* line 54, ../scss/_core.scss */
 #code_options {
   width: 100%;
-  height: 50px;
+  height: 38px;
   background-color: #4a4f65;
   list-style: none;
   margin: 0;
@@ -80,7 +80,7 @@ html, body {
 /* line 62, ../scss/_core.scss */
 #slide_options {
   width: 100%;
-  height: 50px;
+  height: 38px;
   background-color: #4a4f65;
   list-style: none;
   margin: 0;
@@ -88,41 +88,42 @@ html, body {
 }
 
 /* line 70, ../scss/_core.scss */
-.btn {
-  width: 50px;
-  height: 50px;
+.button {
+  width: 38px;
+  height: 38px;
+  cursor: pointer !important;
   float: left;
   position: relative;
 }
-/* line 75, ../scss/_core.scss */
-.btn .drop_down {
+/* line 76, ../scss/_core.scss */
+.button .drop_down {
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0px;
   z-index: 1;
+  cursor: pointer !important;
   opacity: 0;
 }
-/* line 80, ../scss/_core.scss */
-.btn .drop_down + .icon {
-  width: 100%;
-  height: 100%;
+/* line 82, ../scss/_core.scss */
+.button .drop_down ~ .drop_down_container {
   position: absolute;
-  top: 0px;
+  top: 41px;
+  left: 50%;
+  display: none;
 }
-/* line 85, ../scss/_core.scss */
-.btn .drop_down ~ .drop_down_content {
-  position: absolute;
-  top: 53px;
+/* line 86, ../scss/_core.scss */
+.button .drop_down ~ .drop_down_container .drop_down_content {
+  position: relative;
+  left: -50%;
   text-align: center;
   color: #4a4f65;
   background-color: rgba(237, 242, 246, 0.85);
   padding: 5px;
   border-radius: 3px;
-  display: none;
 }
 /* line 94, ../scss/_core.scss */
-.btn .drop_down ~ .drop_down_content:after {
+.button .drop_down ~ .drop_down_container .drop_down_content:after {
   position: absolute;
   top: -10px;
   border-style: solid;
@@ -132,55 +133,47 @@ html, body {
   content: " ";
   background-color: transparent;
 }
-/* line 106, ../scss/_core.scss */
-.btn .drop_down:checked + .icon {
+/* line 107, ../scss/_core.scss */
+.button .drop_down:checked + .icon {
   background-color: red !important;
 }
-/* line 110, ../scss/_core.scss */
-.btn .drop_down:checked ~ .drop_down_content {
+/* line 111, ../scss/_core.scss */
+.button .drop_down:checked ~ .drop_down_container {
   display: block;
 }
-
-/* line 119, ../scss/_core.scss */
-.button {
-  width: 20px;
-  height: 20px;
-  padding-left: 2px;
-  padding-right: 3px;
-  display: inline-block;
-  cursor: pointer;
+/* line 117, ../scss/_core.scss */
+.button .icon {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
 }
-/* line 127, ../scss/_core.scss */
-.button > span {
-  background-image: url(../images/wmd-buttons.png);
-  background-repeat: no-repeat;
-  background-position: 0px 0px;
-  width: 20px;
-  height: 20px;
-  display: inline-block;
+/* line 123, ../scss/_core.scss */
+.button:hover .icon {
+  background-color: #2a2c39;
 }
 
-/* line 137, ../scss/_core.scss */
+/* line 129, ../scss/_core.scss */
 .prompt-background {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* line 141, ../scss/_core.scss */
+/* line 133, ../scss/_core.scss */
 .prompt-dialog {
   border: 1px solid #999999;
   background-color: #F5F5F5;
 }
-/* line 145, ../scss/_core.scss */
+/* line 137, ../scss/_core.scss */
 .prompt-dialog > div {
   font-size: 0.8em;
   font-family: arial, helvetica, sans-serif;
 }
-/* line 150, ../scss/_core.scss */
+/* line 142, ../scss/_core.scss */
 .prompt-dialog input[type="text"] {
   border: 1px solid #999999;
   color: black;
 }
-/* line 155, ../scss/_core.scss */
+/* line 147, ../scss/_core.scss */
 .prompt-dialog input[type="button"] {
   border: 1px solid #888888;
   font-family: trebuchet MS, helvetica, sans-serif;
@@ -188,7 +181,7 @@ html, body {
   font-weight: bold;
 }
 
-/* line 163, ../scss/_core.scss */
+/* line 155, ../scss/_core.scss */
 #controls {
   position: fixed;
   right: 0px;
@@ -199,7 +192,7 @@ html, body {
   background-color: blue;
 }
 
-/* line 169, ../scss/_core.scss */
+/* line 161, ../scss/_core.scss */
 #timeline {
   position: fixed;
   top: 100%;
@@ -209,38 +202,28 @@ html, body {
   height: 150px;
   background: red;
 }
-/* line 174, ../scss/_core.scss */
+/* line 166, ../scss/_core.scss */
 #timeline.open {
   top: auto;
   bottom: 50px;
 }
 
-/* line 2, ../scss/_buttons.scss */
-#style_padding .icon {
-  background: teal;
+/* line 1, ../scss/_buttons.scss */
+#undo-button, #redo-button, hr-button {
+  display: none;
 }
+
 /* line 6, ../scss/_buttons.scss */
-#style_padding .drop_down_content {
-  right: calc(50% - 100px);
-  width: 200px;
+#style_padding .icon {
+  /* 		background: teal; */
 }
 
-/* line 13, ../scss/_buttons.scss */
+/* line 12, ../scss/_buttons.scss */
 #style_border .icon {
-  background: green;
-}
-/* line 17, ../scss/_buttons.scss */
-#style_border .drop_down_content {
-  right: calc(50% - 100px);
-  width: 200px;
+  /* 		background: green; */
 }
 
-/* line 24, ../scss/_buttons.scss */
+/* line 18, ../scss/_buttons.scss */
 #style_background_color .icon {
-  background: blue;
-}
-/* line 28, ../scss/_buttons.scss */
-#style_background_color .drop_down_content {
-  right: calc(50% - 100px);
-  width: 200px;
+  /* 		background: blue; */
 }

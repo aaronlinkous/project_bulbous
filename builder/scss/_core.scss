@@ -67,38 +67,39 @@ html, body {
 	padding: 0;
 }
 
-.btn {
+.button {
 	@include size($button_height $button_height);
+	cursor: pointer !important;
 	float: left;
 	position: relative;
 
 	.drop_down {
 		@include size(100% 100%);
 		@include position(absolute, 0px 0 0 0, 1);
+		cursor: pointer !important;
 		opacity: 0;
-	
-		+ .icon {
-			@include size(100% 100%);
-			@include position(absolute, 0px 0 0 0);
-		}
 		
-		~ .drop_down_content {
-			@include position(absolute, $button_height+3px 0 0 0);
-			text-align: center;
-			color: $button_bg;
-			background-color: rgba($code_color, .85);
-			padding: 5px;
-			border-radius: 3px;
-			display: none;
+		~ .drop_down_container {
+				@include position(absolute, $button_height+3px 0 0 50%);
+				display: none;
 
-			&:after {
-				@include position(absolute, -10px 0 0 0);
-				border-style: solid;
-				border-width: 0 8px 10px 8px;
-				border-color: transparent transparent rgba($code_color, .85) transparent;
-				right: calc(50% - 8px);
-				content: " ";
-				background-color: transparent;
+			.drop_down_content {
+				@include position(relative, 0 0 0 -50%);
+				text-align: center;
+				color: $button_bg;
+				background-color: rgba($code_color, .85);
+				padding: 5px;
+				border-radius: 3px;
+	
+				&:after {
+					@include position(absolute, -10px 0 0 0);
+					border-style: solid;
+					border-width: 0 8px 10px 8px;
+					border-color: transparent transparent rgba($code_color, .85) transparent;
+					right: calc(50% - 8px);
+					content: " ";
+					background-color: transparent;
+				}
 			}
 		}
 	
@@ -107,30 +108,21 @@ html, body {
 				background-color: red !important;
 			}
 
-			~ .drop_down_content {
+			~ .drop_down_container {
 				display: block;
 			}
 		}
 	}
-}
 
+	.icon {
+		@include size(100% 100%);
+		@include position(absolute, 0px 0 0 0);
+	}
 
-
-.button {
-	width: 20px;
-	height: 20px;
-	padding-left: 2px;
-	padding-right: 3px;
-	display: inline-block;
-	cursor: pointer;
-
-	> span {
-		background-image: url(../images/wmd-buttons.png);
-		background-repeat: no-repeat;
-		background-position: 0px 0px;
-		width: 20px;
-		height: 20px;
-		display: inline-block;
+	&:hover {
+		.icon {
+			background-color: darken($button_bg,15%);
+		}
 	}
 }
 

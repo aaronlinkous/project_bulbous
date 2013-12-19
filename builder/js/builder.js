@@ -62,7 +62,7 @@ $(document).ready(function(){
 		console.log("Saving Styles to DB:",Builder.cssString(), Builder.styles());
 	});
 
-	$(".btn > input").on("click", function(e) {
-		$(".btn > input").not($(e.target)).prop("checked", false);
+	$("input.drop_down").on("click", function(e) {
+		$("input.drop_down").not($(e.target)).prop("checked", false);
 	});
 });

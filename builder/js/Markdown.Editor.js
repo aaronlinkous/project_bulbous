@@ -1397,6 +1397,7 @@
                 button.className = "button";
                 var buttonImage = document.createElement("span");
                 button.id = id + postfix;
+				buttonImage.className = "icon";
                 button.appendChild(buttonImage);
                 button.title = title;
                 if (textOp)
@@ -1423,7 +1424,9 @@
                 this.doList(chunk, postProcessing, false);
             }));
             buttons.heading = makeButton("heading-button", getString("heading"), bindCommand("doHeading"));
-            buttons.hr = makeButton("hr-button", getString("hr"), bindCommand("doHorizontalRule"));
+            
+
+			buttons.hr = makeButton("hr-button", getString("hr"), bindCommand("doHorizontalRule"));
             buttons.undo = makeButton("undo-button", getString("undo"), null);
             buttons.undo.execute = function (manager) { if (manager) manager.undo(); };
 
@@ -1433,6 +1436,7 @@
 
             buttons.redo = makeButton("redo-button", redoTitle, null);
             buttons.redo.execute = function (manager) { if (manager) manager.redo(); };
+
 
             buttons.align_left = makeButton("align-left-button", getString("align_left"), bindCommand("doAlign_left"));
             buttons.align_center = makeButton("align-center-button", getString("align_center"), bindCommand("doAlign_center"));
