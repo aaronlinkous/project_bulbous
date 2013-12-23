@@ -65,26 +65,22 @@
 }
 /* line 52, ../scss/_type.scss */
 .slide a {
-  color: #08c882;
-  text-decoration: none;
+  color: #f0f0f0;
+  text-decoration: underline;
 }
-/* line 56, ../scss/_type.scss */
-.slide a:hover {
-  text-decoration: none;
-}
-/* line 61, ../scss/_type.scss */
+/* line 57, ../scss/_type.scss */
 .slide align_left {
   text-align: left;
   background-color: purple;
   display: block;
 }
-/* line 67, ../scss/_type.scss */
+/* line 63, ../scss/_type.scss */
 .slide align_center {
   text-align: center;
   background-color: red;
   display: block;
 }
-/* line 73, ../scss/_type.scss */
+/* line 69, ../scss/_type.scss */
 .slide align_right {
   text-align: right;
   background-color: pink;
@@ -153,6 +149,10 @@ html, body {
   -webkit-animation: none !important;
   -moz-animation: none !important;
   animation: none !important;
+}
+/* line 40, ../scss/_core.scss */
+#presentation .slide .content, #presentation .slide #content {
+  overflow-y: auto;
 }
 
 /* line 1, ../scss/_slide_styles.scss */

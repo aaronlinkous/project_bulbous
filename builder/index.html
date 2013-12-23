@@ -19,7 +19,7 @@
 		<section id="presentation">
 			<ul id="slide_options">
 				<li class="button" id="style_padding">
-					<input type="checkbox" class="drop_down" />
+					<input type="checkbox" class="drop_down toggle" />
 					<span class="icon"></span>
 					<div class="drop_down_container">
 						<div class="drop_down_content">
@@ -30,7 +30,7 @@
 				</li>
 
 				<li class="button" id="style_border">
-					<input type="checkbox" class="drop_down" />
+					<input type="checkbox" class="drop_down toggle" />
 					<span class="icon"></span>
 					<div class="drop_down_container">
 						<div class="drop_down_content">
@@ -41,7 +41,7 @@
 				</li>
 
 				<li class="button" id="style_background_color">
-					<input type="checkbox" class="drop_down" />
+					<input type="checkbox" class="drop_down toggle" />
 					<span class="icon"></span>
 					<div class="drop_down_container">
 						<div class="drop_down_content">
@@ -50,16 +50,24 @@
 						</div>
 					</div>
 				</li>
+
+				<li class="right">
+					<button id="save">Save</button>
+				</li>
 			</ul>
-			<section id="slide" class="slide active">
+			<section id="slide" class="slide active" data-slide="0">
 				<div id="content"></div>
 			</section>
 		</section>
 
-		<section id="controls">
-			<button id="save">Save</button>
+		<section id="timeline">
+			<input type="checkbox" class="toggle" id="timeline_toggle" />
+			<aside id="timeline_title">Timeline</aside>
+
+			<ul id="slides">
+
+			</ul>
 		</section>
-		<section id="timeline"></section>
 
 		<!-- Everything from here down is controlled by builder.js -->
 		<script>
@@ -70,10 +78,6 @@
 				style: "padding",
 				val: "15",
 				post: "%"
-			},{
-				style: "border-width",
-				val: "15",
-				post: "px"
 			}];
 		</script>
 		<script src="js/builder.js"></script>

@@ -10,7 +10,6 @@ $headline_font: "din-condensed-web",sans-serif;
 $editor_width: 500px;
 $control_height: 50px;
 $button_height: 38px;
-$editor_height: $button_height + $control_height;
 
 $large_screen: 1200px;
 $tablet_l: 1024px;
@@ -26,8 +25,13 @@ $mobile_p: 360px;
 	text-rendering: optimizeLegibility;
 }
 
-%animated {
-	@include transition(all 0.5s ease-in-out);
+@mixin animated($time: false) {
+	$t: .5s;
+
+	@if $time != "" {
+		$t: $time;
+	}
+	@include transition(all $t ease-in-out);
 }
 
 %font {

@@ -50,12 +50,8 @@
 	}
 	
 	a {
-		color: $accent_color;
-		text-decoration: none;
-	
-		&:hover {
-			text-decoration: none;
-		}
+		color: $light_color;
+		text-decoration: underline;
 	}
 
 	align_left {

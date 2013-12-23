@@ -1407,23 +1407,28 @@
                 return button;
             };
 
+            buttons.heading = makeButton("heading-button", getString("heading"), bindCommand("doHeading"));
+
             buttons.bold = makeButton("bold-button", getString("bold"), bindCommand("doBold"));
             buttons.italic = makeButton("italic-button", getString("italic"), bindCommand("doItalic"));
+            buttons.quote = makeButton("quote-button", getString("quote"), bindCommand("doBlockquote"));
             buttons.link = makeButton("link-button", getString("link"), bindCommand(function (chunk, postProcessing) {
                 return this.doLinkOrImage(chunk, postProcessing, false);
             }));
-            buttons.quote = makeButton("quote-button", getString("quote"), bindCommand("doBlockquote"));
             buttons.code = makeButton("code-button", getString("code"), bindCommand("doCode"));
-            buttons.image = makeButton("image-button", getString("image"), bindCommand(function (chunk, postProcessing) {
-                return this.doLinkOrImage(chunk, postProcessing, true);
-            }));
             buttons.olist = makeButton("olist-button", getString("olist"), bindCommand(function (chunk, postProcessing) {
                 this.doList(chunk, postProcessing, true);
             }));
             buttons.ulist = makeButton("ulist-button", getString("ulist"), bindCommand(function (chunk, postProcessing) {
                 this.doList(chunk, postProcessing, false);
             }));
-            buttons.heading = makeButton("heading-button", getString("heading"), bindCommand("doHeading"));
+            buttons.align_left = makeButton("align-left-button", getString("align_left"), bindCommand("doAlign_left"));
+            buttons.align_center = makeButton("align-center-button", getString("align_center"), bindCommand("doAlign_center"));
+            buttons.align_right = makeButton("align-right-button", getString("align_right"), bindCommand("doAlign_right"));
+            buttons.image = makeButton("image-button", getString("image"), bindCommand(function (chunk, postProcessing) {
+                return this.doLinkOrImage(chunk, postProcessing, true);
+            }));
+
             
 
 			buttons.hr = makeButton("hr-button", getString("hr"), bindCommand("doHorizontalRule"));
@@ -1438,9 +1443,7 @@
             buttons.redo.execute = function (manager) { if (manager) manager.redo(); };
 
 
-            buttons.align_left = makeButton("align-left-button", getString("align_left"), bindCommand("doAlign_left"));
-            buttons.align_center = makeButton("align-center-button", getString("align_center"), bindCommand("doAlign_center"));
-            buttons.align_right = makeButton("align-right-button", getString("align_right"), bindCommand("doAlign_right"));
+
 
             setUndoRedoButtonStates();
         }

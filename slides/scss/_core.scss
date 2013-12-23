@@ -36,5 +36,9 @@ html, body {
 			@include display(flex);
 			@include animation(none !important);
 		}
+
+		.content, #content {
+			overflow-y: auto;
+		}
 	}
 }

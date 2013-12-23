@@ -1,4 +1,4 @@
-/* line 21, ../scss/_variables.scss */
+/* line 20, ../scss/_variables.scss */
 #code {
   -webkit-font-smoothing: antialiased;
   -webkit-font-feature-settings: 'liga', 'dlig';
@@ -31,20 +31,41 @@ html, body {
 }
 
 /* line 20, ../scss/_core.scss */
+.left {
+  float: left;
+}
+
+/* line 24, ../scss/_core.scss */
+.right {
+  float: right;
+}
+
+/* line 28, ../scss/_core.scss */
+.toggle {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  z-index: 1;
+  cursor: pointer !important;
+  opacity: 0;
+}
+
+/* line 35, ../scss/_core.scss */
 #editor {
   width: calc(500px);
   height: 100%;
   float: left;
 }
 
-/* line 26, ../scss/_core.scss */
+/* line 41, ../scss/_core.scss */
 #presentation {
   height: 100%;
   width: calc(100% - 500px);
   float: right;
 }
 
-/* line 32, ../scss/_core.scss */
+/* line 47, ../scss/_core.scss */
 #code {
   background-color: #1f212a;
   color: #edf2f6;
@@ -54,20 +75,20 @@ html, body {
   font-size: 14px;
   border: none;
   width: 100%;
-  height: calc(100% - 88px);
+  height: calc(100% - 38px);
   outline: none;
   resize: none;
 }
 
-/* line 47, ../scss/_core.scss */
+/* line 62, ../scss/_core.scss */
 #slide {
   width: 100%;
-  height: calc(100% - 88px);
+  height: calc(100% - 38px);
   float: right;
   background: gray;
 }
 
-/* line 54, ../scss/_core.scss */
+/* line 69, ../scss/_core.scss */
 #code_options {
   width: 100%;
   height: 38px;
@@ -77,7 +98,7 @@ html, body {
   padding: 0;
 }
 
-/* line 62, ../scss/_core.scss */
+/* line 77, ../scss/_core.scss */
 #slide_options {
   width: 100%;
   height: 38px;
@@ -87,7 +108,7 @@ html, body {
   padding: 0;
 }
 
-/* line 70, ../scss/_core.scss */
+/* line 85, ../scss/_core.scss */
 .button {
   width: 38px;
   height: 38px;
@@ -95,24 +116,14 @@ html, body {
   float: left;
   position: relative;
 }
-/* line 76, ../scss/_core.scss */
-.button .drop_down {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0px;
-  z-index: 1;
-  cursor: pointer !important;
-  opacity: 0;
-}
-/* line 82, ../scss/_core.scss */
+/* line 92, ../scss/_core.scss */
 .button .drop_down ~ .drop_down_container {
   position: absolute;
   top: 41px;
   left: 50%;
   display: none;
 }
-/* line 86, ../scss/_core.scss */
+/* line 96, ../scss/_core.scss */
 .button .drop_down ~ .drop_down_container .drop_down_content {
   position: relative;
   left: -50%;
@@ -122,10 +133,10 @@ html, body {
   padding: 5px;
   border-radius: 3px;
 }
-/* line 94, ../scss/_core.scss */
+/* line 104, ../scss/_core.scss */
 .button .drop_down ~ .drop_down_container .drop_down_content:after {
   position: absolute;
-  top: -10px;
+  bottom: 100%;
   border-style: solid;
   border-width: 0 8px 10px 8px;
   border-color: transparent transparent rgba(237, 242, 246, 0.85) transparent;
@@ -133,47 +144,48 @@ html, body {
   content: " ";
   background-color: transparent;
 }
-/* line 107, ../scss/_core.scss */
+/* line 117, ../scss/_core.scss */
 .button .drop_down:checked + .icon {
   background-color: red !important;
 }
-/* line 111, ../scss/_core.scss */
+/* line 121, ../scss/_core.scss */
 .button .drop_down:checked ~ .drop_down_container {
   display: block;
 }
-/* line 117, ../scss/_core.scss */
+/* line 127, ../scss/_core.scss */
 .button .icon {
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0px;
+  background-size: 38px 38px;
 }
-/* line 123, ../scss/_core.scss */
+/* line 134, ../scss/_core.scss */
 .button:hover .icon {
   background-color: #2a2c39;
 }
 
-/* line 129, ../scss/_core.scss */
+/* line 140, ../scss/_core.scss */
 .prompt-background {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* line 133, ../scss/_core.scss */
+/* line 144, ../scss/_core.scss */
 .prompt-dialog {
   border: 1px solid #999999;
   background-color: #F5F5F5;
 }
-/* line 137, ../scss/_core.scss */
+/* line 148, ../scss/_core.scss */
 .prompt-dialog > div {
   font-size: 0.8em;
   font-family: arial, helvetica, sans-serif;
 }
-/* line 142, ../scss/_core.scss */
+/* line 153, ../scss/_core.scss */
 .prompt-dialog input[type="text"] {
   border: 1px solid #999999;
   color: black;
 }
-/* line 147, ../scss/_core.scss */
+/* line 158, ../scss/_core.scss */
 .prompt-dialog input[type="button"] {
   border: 1px solid #888888;
   font-family: trebuchet MS, helvetica, sans-serif;
@@ -181,49 +193,141 @@ html, body {
   font-weight: bold;
 }
 
-/* line 155, ../scss/_core.scss */
-#controls {
-  position: fixed;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-  z-index: 999;
-  height: 50px;
-  background-color: blue;
-}
-
-/* line 161, ../scss/_core.scss */
+/* line 166, ../scss/_core.scss */
 #timeline {
+  -webkit-transition: all 0.125s ease-in-out;
+  -moz-transition: all 0.125s ease-in-out;
+  transition: all 0.125s ease-in-out;
   position: fixed;
-  top: 100%;
   right: 0px;
+  bottom: -162px;
   left: 0px;
   z-index: 998;
-  height: 150px;
-  background: red;
+  cursor: pointer;
+  height: 200px;
 }
-/* line 166, ../scss/_core.scss */
-#timeline.open {
-  top: auto;
-  bottom: 50px;
+/* line 175, ../scss/_core.scss */
+#timeline #timeline_toggle + #timeline_title {
+  width: 100%;
+  height: 38px;
+  background-color: #4a4f65;
+  color: #edf2f6;
+  text-align: center;
+}
+/* line 182, ../scss/_core.scss */
+#timeline #timeline_toggle ~ #slides {
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  width: 100%;
+  height: 162px;
+  margin: 0;
+  padding: 9.5px;
+  background: red;
+  opacity: 0;
+}
+/* line 191, ../scss/_core.scss */
+#timeline #timeline_toggle:hover {
+  background-color: #2a2c39;
 }
 
 /* line 1, ../scss/_buttons.scss */
-#undo-button, #redo-button, hr-button {
+#undo-button, #redo-button, #hr-button, #olist-button {
   display: none;
 }
 
 /* line 6, ../scss/_buttons.scss */
+#heading-button .icon {
+  background-image: url(../images/heading.svg);
+}
+
+/* line 12, ../scss/_buttons.scss */
+#bold-button .icon {
+  background-image: url(../images/bold.svg);
+}
+
+/* line 18, ../scss/_buttons.scss */
+#italic-button .icon {
+  background-image: url(../images/italic.svg);
+}
+
+/* line 24, ../scss/_buttons.scss */
+#quote-button .icon {
+  background-image: url(../images/quote.svg);
+}
+
+/* line 30, ../scss/_buttons.scss */
+#link-button .icon {
+  background-image: url(../images/link.svg);
+}
+
+/* line 36, ../scss/_buttons.scss */
+#code-button .icon {
+  background-image: url(../images/code.svg);
+}
+
+/*
+#olist-button {
+	.icon {
+		background-image: url(../images/olist.svg);
+	}
+}
+*/
+/* line 50, ../scss/_buttons.scss */
+#ulist-button .icon {
+  background-image: url(../images/ulist.svg);
+}
+
+/* line 56, ../scss/_buttons.scss */
+#align-left-button .icon {
+  background-image: url(../images/align_left.svg);
+}
+
+/* line 62, ../scss/_buttons.scss */
+#align-center-button .icon {
+  background-image: url(../images/align_center.svg);
+}
+
+/* line 68, ../scss/_buttons.scss */
+#align-right-button .icon {
+  background-image: url(../images/align_right.svg);
+}
+
+/* line 74, ../scss/_buttons.scss */
+#image-button .icon {
+  background-image: url(../images/image.svg);
+}
+
+/*
+#hr-button {
+	.icon {
+		background-image: url(../images/hr.svg);
+	}
+}
+
+#undo-button {
+	.icon {
+		background-image: url(../images/undo.svg);
+	}
+}
+
+#redo-button {
+	.icon {
+		background-image: url(../images/redo.svg);
+	}
+}
+*/
+/* line 100, ../scss/_buttons.scss */
 #style_padding .icon {
   /* 		background: teal; */
 }
 
-/* line 12, ../scss/_buttons.scss */
+/* line 106, ../scss/_buttons.scss */
 #style_border .icon {
   /* 		background: green; */
 }
 
-/* line 18, ../scss/_buttons.scss */
+/* line 112, ../scss/_buttons.scss */
 #style_background_color .icon {
   /* 		background: blue; */
 }
