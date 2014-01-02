@@ -51,6 +51,18 @@
 					</div>
 				</li>
 
+				<li class="button" id="alignment_horiz">
+					<input type="checkbox" class="drop_down toggle" />
+					<span class="icon"></span>
+					<div class="drop_down_container">
+						<div class="drop_down_content">
+							Alignment
+							<input class="slide_alignment" data-alignment="horiz" maxlength="7" type="text" value="l" />
+							<input class="slide_alignment" data-alignment="vert" maxlength="7" type="text" value="t" />
+						</div>
+					</div>
+				</li>
+
 				<li class="right">
 					<button id="save">Save</button>
 				</li>
@@ -71,6 +83,26 @@
 
 		<!-- Everything from here down is controlled by builder.js -->
 		<script>
+			/* Ignore this object for now */
+			var slide_properties = [{
+				key: "background-color",
+				val: "#1fe48a",
+				type: "style"
+			},{
+				key: "padding",
+				val: "15",
+				post: "%",
+				type: "style"
+			},{
+				key: "horiz",
+				val: "c",
+				type: "class"
+			},{
+				key: "next-trans",
+				val : "fade_in",
+				type: "data"
+			}];
+
 			var styles = [{
 				style: "background-color",
 				val: "#1fe48a"

@@ -425,7 +425,9 @@ else
             text = _DoLists(text);
             text = _DoCodeBlocks(text);
             text = _DoBlockQuotes(text);
-            text = _DoAlignment(text);
+            text = _DoLeftAlign(text);
+            text = _DoCenterAlign(text);
+            text = _DoRightAlign(text);
             
             text = pluginHooks.postBlockGamut(text, blockGamutHookCallback);
 
@@ -1116,12 +1118,10 @@ else
             text = text.replace(/((^[ \t]*>[ \t]?.+\n(.+\n)*\n*)+)/gm,
                 function (wholeMatch, m1) {
                     var bq = m1;
-console.log(m1);
                     // attacklab: hack around Konqueror 3.5.4 bug:
                     // "----------bug".replace(/^-/g,"") == "bug"
 
                     bq = bq.replace(/^[ \t]*>[ \t]?/gm, "~0"); // trim one level of quoting
-
                     // attacklab: clean up hack
                     bq = bq.replace(/~0/g, "");
 
@@ -1129,6 +1129,7 @@ console.log(m1);
                     bq = _RunBlockGamut(bq);             // recurse
 
                     bq = bq.replace(/(^|\n)/g, "$1  ");
+
                     // These leading spaces screw with <pre> content, so we need to fix that:
                     bq = bq.replace(
                             /(\s*<pre>[^\r]+?<\/pre>)/gm,
@@ -1145,9 +1146,8 @@ console.log(m1);
             );
             return text;
         }
-		
-		function _DoAlignment(text) {
 
+		function _DoLeftAlign(text) {
             /*
             text = text.replace(/
                 (                           // Wrap whole match in $1
@@ -1161,31 +1161,18 @@ console.log(m1);
             /gm, function(){...});
             */
 
-            text = text.replace(/((^[ \t]*--\||\|--|-\|-[ \t]?.+\n(.+\n)*\n*)+)/gm,
+            text = text.replace(/((^[ \t]*\|--[ \t]?.+\n(.+\n)*\n*)+)/gm,
                 function (wholeMatch, m1) {
                     var bq = m1;
-console.log(m1);
                     // attacklab: hack around Konqueror 3.5.4 bug:
                     // "----------bug".replace(/^-/g,"") == "bug"
+					pre_alignment = "<align_left>";
+					post_alignment = "</align_left>";
 
-					pre_alignment = "";
-					post_alignment = "";
 
-					if(m1 == "|--"){
-						pre_alignment = "<align_left>";
-						post_alignment = "</align_left>";
-					} else if(m1 == "-|-"){
-						pre_alignment = "<align_center>";
-						post_alignment = "</align_center>";
-					} else if(m1 == "--|"){
-						pre_alignment = "<align_right>";
-						post_alignment = "</align_right>";
-					}
-
-                    bq = bq.replace(/^[ \t]*--\||\|--|-\|-[ \t]?/gm, "~0"); // trim one level of quoting
+                    bq = bq.replace(/^[ \t]*\|--[ \t]?/gm, "~0"); // trim one level of quoting
                     // attacklab: clean up hack
                     bq = bq.replace(/~0/g, "");
-
                     bq = bq.replace(/^[ \t]+$/gm, "");     // trim whitespace-only lines
                     bq = _RunBlockGamut(bq);             // recurse
 
@@ -1195,6 +1182,103 @@ console.log(m1);
                             /(\s*<pre>[^\r]+?<\/pre>)/gm,
                         function (wholeMatch, m1) {
                             var pre = m1;
+
+                            // attacklab: hack around Konqueror 3.5.4 bug:
+                            pre = pre.replace(/^  /mg, "~0");
+                            pre = pre.replace(/~0/g, "");
+                            return pre;
+                        });
+                    return hashBlock(pre_alignment+"\n" + bq + "\n"+post_alignment);
+                }
+            );
+
+            return text;
+        }
+
+		function _DoCenterAlign(text) {
+            /*
+            text = text.replace(/
+                (                           // Wrap whole match in $1
+                    (
+                        ^[ \t]*>[ \t]?      // '>' at the start of a line
+                        .+\n                // rest of the first line
+                        (.+\n)*             // subsequent consecutive lines
+                        \n*                 // blanks
+                    )+
+                )
+            /gm, function(){...});
+            */
+
+            text = text.replace(/((^[ \t]*-\|-[ \t]?.+\n(.+\n)*\n*)+)/gm,
+                function (wholeMatch, m1) {
+                    var bq = m1;
+                    // attacklab: hack around Konqueror 3.5.4 bug:
+                    // "----------bug".replace(/^-/g,"") == "bug"
+					pre_alignment = "<align_center>";
+					post_alignment = "</align_center>";
+
+
+                    bq = bq.replace(/^[ \t]*-\|-[ \t]?/gm, "~0"); // trim one level of quoting
+                    // attacklab: clean up hack
+                    bq = bq.replace(/~0/g, "");
+                    bq = bq.replace(/^[ \t]+$/gm, "");     // trim whitespace-only lines
+                    bq = _RunBlockGamut(bq);             // recurse
+
+                    bq = bq.replace(/(^|\n)/g, "$1 ");
+                    // These leading spaces screw with <pre> content, so we need to fix that:
+                    bq = bq.replace(
+                            /(\s*<pre>[^\r]+?<\/pre>)/gm,
+                        function (wholeMatch, m1) {
+                            var pre = m1;
+
+                            // attacklab: hack around Konqueror 3.5.4 bug:
+                            pre = pre.replace(/^  /mg, "~0");
+                            pre = pre.replace(/~0/g, "");
+                            return pre;
+                        });
+                    return hashBlock(pre_alignment+"\n" + bq + "\n"+post_alignment);
+                }
+            );
+
+            return text;
+        }
+
+		function _DoRightAlign(text) {
+            /*
+            text = text.replace(/
+                (                           // Wrap whole match in $1
+                    (
+                        ^[ \t]*>[ \t]?      // '>' at the start of a line
+                        .+\n                // rest of the first line
+                        (.+\n)*             // subsequent consecutive lines
+                        \n*                 // blanks
+                    )+
+                )
+            /gm, function(){...});
+            */
+
+            text = text.replace(/((^[ \t]*--\|[ \t]?.+\n(.+\n)*\n*)+)/gm,
+                function (wholeMatch, m1) {
+                    var bq = m1;
+                    // attacklab: hack around Konqueror 3.5.4 bug:
+                    // "----------bug".replace(/^-/g,"") == "bug"
+					pre_alignment = "<align_right>";
+					post_alignment = "</align_right>";
+
+
+                    bq = bq.replace(/^[ \t]*--\|[ \t]?/gm, "~0"); // trim one level of quoting
+                    // attacklab: clean up hack
+                    bq = bq.replace(/~0/g, "");
+                    bq = bq.replace(/^[ \t]+$/gm, "");     // trim whitespace-only lines
+                    bq = _RunBlockGamut(bq);             // recurse
+
+                    bq = bq.replace(/(^|\n)/g, "$1 ");
+                    // These leading spaces screw with <pre> content, so we need to fix that:
+                    bq = bq.replace(
+                            /(\s*<pre>[^\r]+?<\/pre>)/gm,
+                        function (wholeMatch, m1) {
+                            var pre = m1;
+
                             // attacklab: hack around Konqueror 3.5.4 bug:
                             pre = pre.replace(/^  /mg, "~0");
                             pre = pre.replace(/~0/g, "");

@@ -191,5 +191,11 @@ html, body {
 		&:hover {
 			background-color: darken($button_bg, 15%);
 		}
+
+		&:checked {
+			+ #timeline_title {
+				background: red;
+			}
+		}
 	}
 }

@@ -71,19 +71,16 @@
 /* line 57, ../scss/_type.scss */
 .slide align_left {
   text-align: left;
-  background-color: purple;
   display: block;
 }
-/* line 63, ../scss/_type.scss */
+/* line 62, ../scss/_type.scss */
 .slide align_center {
   text-align: center;
-  background-color: red;
   display: block;
 }
-/* line 69, ../scss/_type.scss */
+/* line 67, ../scss/_type.scss */
 .slide align_right {
   text-align: right;
-  background-color: pink;
   display: block;
 }
 

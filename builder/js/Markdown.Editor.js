@@ -1467,7 +1467,7 @@
     var commandProto = CommandManager.prototype;
 
     // The markdown symbols - 4 spaces = code, > = blockquote, etc.
-    commandProto.prefixes = "(?:\\s{4,}|\\s*>|\\s*-\\s+|\\s*\\d+\\.|=|\\+|-|_|\\*|#|\\s*\\[[^\n]]+\\]|\|--|-\|-|--\|:)";
+    commandProto.prefixes = "(?:\\s{4,}|\\s*>|\\s*-\\s+|\\s*\\d+\\.|=|\\+|-|_|\\*|#|\\s*\\[[^\n]]+\\]|--\||\|--|-\|-:)";
 
     // Remove markdown symbols from the chunk selection.
     commandProto.unwrap = function (chunk) {
@@ -2157,22 +2157,22 @@
 			return text;
 		});
 		
-		chunk.before = chunk.before.replace(/(\|--|-\|-|--\|[ \t]*)$/,
+		chunk.before = chunk.before.replace(/(--\||\|--|-\|-[ \t]*)$/,
 			function (totalMatch, blankLine) {
 				chunk.selection = blankLine + chunk.selection;
 				return "";
 		});
 
-		chunk.selection = chunk.selection.replace(/^(\s|\|--|-\|-|--\|)+$/, "");
+		chunk.selection = chunk.selection.replace(/^(\s|--\||\|--|-\|-)+$/, "");
 
 		if(align == "l") {
-			chunk.startTag = "|-- ";
+			chunk.startTag = "|--";
 			chunk.selection = chunk.selection || this.getString("align_left_example");
 		} else if(align == "c") {
-			chunk.startTag = "-|- ";
+			chunk.startTag = "-|-";
 			chunk.selection = chunk.selection || this.getString("align_center_example");
-		} else {
-			chunk.startTag = "--| ";
+		} else if(align == "r") {
+			chunk.startTag = "--|";
 			chunk.selection = chunk.selection || this.getString("align_right_example");
 		}
 
@@ -2188,7 +2188,7 @@
                 var good = false;
                 line = lines[i];
                 inChain = inChain && line.length > 0; // c) any non-empty line continues the chain
-                if (/^\|--|-\|-|--\|/.test(line)) {                // a)
+                if (/^--\||\|--|-\|-/.test(line)) {                // a)
                     good = true;
                     if (!inChain && line.length > 1)  // c) any line that starts with ">" and has at least one more character starts the chain
                         inChain = true;
@@ -2204,7 +2204,7 @@
                     match = "\n";
                 }
             }
-            if (!/(^|\n)\|--|-\|-|--\|/.test(match)) {             // d)
+            if (!/(^|\n)--\||\|--|-\|-/.test(match)) {             // d)
                 leftOver += match;
                 match = "";
             }
@@ -2234,7 +2234,6 @@
             if (chunk.startTag) {
                 chunk.startTag = chunk.startTag.replace(/\n((--\||\|--|-\|-|\s)*)\n$/,
                     function (totalMatch, markdown) {
-
                         return "\n" + markdown.replace(/^[ ]{0,3}--\||\|--|-\|-?[ \t]*$/gm, replacement) + "\n";
                     });
             }
@@ -2247,7 +2246,7 @@
         };
 
         if (/^(?![ ]{0,3}--\||\|--|-\|-)/m.test(chunk.selection)) {
-            this.wrap(chunk, SETTINGS.lineLength - 2);
+            this.wrap(chunk, SETTINGS.lineLength - 3);
             chunk.selection = chunk.selection.replace(/^/gm, align_tag);
             replaceBlanksInTags(true);
             chunk.skipLines();

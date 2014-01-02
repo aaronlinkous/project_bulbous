@@ -59,7 +59,7 @@ $(document).ready(function(){
 	});
 
 	$("#save").on("click", function(e) {
-		console.log("Saving Styles to DB:",Builder.cssString(), Builder.styles());
+		console.log("Saving Styles to DB:", Builder.cssString(), Builder.styles());
 	});
 
 	$("input.drop_down").on("click", function(e) {

@@ -230,6 +230,10 @@ html, body {
 #timeline #timeline_toggle:hover {
   background-color: #2a2c39;
 }
+/* line 196, ../scss/_core.scss */
+#timeline #timeline_toggle:checked + #timeline_title {
+  background: red;
+}
 
 /* line 1, ../scss/_buttons.scss */
 #undo-button, #redo-button, #hr-button, #olist-button {
