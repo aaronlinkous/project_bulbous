@@ -150,6 +150,7 @@ html, body {
 /* line 40, ../scss/_core.scss */
 #presentation .slide .content, #presentation .slide #content {
   overflow-y: auto;
+  width: 100%;
 }
 
 /* line 1, ../scss/_slide_styles.scss */
@@ -165,15 +166,15 @@ blockquote {
 
 /* line 10, ../scss/_slide_styles.scss */
 .vert_t {
-  -webkit-box-align: top;
-  -moz-box-align: top;
-  box-align: top;
-  -webkit-align-items: top;
-  -moz-align-items: top;
-  -ms-align-items: top;
-  -o-align-items: top;
-  align-items: top;
-  -ms-flex-align: top;
+  -webkit-box-align: start;
+  -moz-box-align: start;
+  box-align: start;
+  -webkit-align-items: flex-start;
+  -moz-align-items: flex-start;
+  -ms-align-items: flex-start;
+  -o-align-items: flex-start;
+  align-items: flex-start;
+  -ms-flex-align: start;
 }
 
 /* line 14, ../scss/_slide_styles.scss */
@@ -191,18 +192,19 @@ blockquote {
 
 /* line 18, ../scss/_slide_styles.scss */
 .vert_b {
-  -webkit-box-align: bottom;
-  -moz-box-align: bottom;
-  box-align: bottom;
-  -webkit-align-items: bottom;
-  -moz-align-items: bottom;
-  -ms-align-items: bottom;
-  -o-align-items: bottom;
-  align-items: bottom;
-  -ms-flex-align: bottom;
+  -webkit-box-align: end;
+  -moz-box-align: end;
+  box-align: end;
+  -webkit-align-items: flex-end;
+  -moz-align-items: flex-end;
+  -ms-align-items: flex-end;
+  -o-align-items: flex-end;
+  align-items: flex-end;
+  -ms-flex-align: end;
 }
 
-/* line 22, ../scss/_slide_styles.scss */
+/* Pretty sure I will end up removing these */
+/* line 24, ../scss/_slide_styles.scss */
 .horiz_l {
   -webkit-box-pack: start;
   -moz-box-pack: start;
@@ -215,7 +217,7 @@ blockquote {
   -ms-flex-pack: start;
 }
 
-/* line 26, ../scss/_slide_styles.scss */
+/* line 28, ../scss/_slide_styles.scss */
 .horiz_c {
   -webkit-box-pack: center;
   -moz-box-pack: center;
@@ -228,7 +230,7 @@ blockquote {
   -ms-flex-pack: center;
 }
 
-/* line 30, ../scss/_slide_styles.scss */
+/* line 32, ../scss/_slide_styles.scss */
 .horiz_r {
   -webkit-box-pack: end;
   -moz-box-pack: end;

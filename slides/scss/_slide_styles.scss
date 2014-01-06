@@ -8,7 +8,7 @@ blockquote {
 }
 
 .vert_t {
-	@include align-items(top);
+	@include align-items(flex-start);
 }
 
 .vert_c {
@@ -16,9 +16,11 @@ blockquote {
 }
 
 .vert_b {
-	@include align-items(bottom);
+	@include align-items(flex-end);
 }
 
+
+/* Pretty sure I will end up removing these */
 .horiz_l {
 	@include justify-content(flex-start);
 }

@@ -54,14 +54,14 @@ html, body {
 	font-size: 14px;
 	border: none;
 	width: 100%;
-	height: calc(100% - #{$button_height});
+	height: calc(100% - #{$viewable_height});
 	outline: none;
 	resize: none;
 }
 
 #slide {
 	width: 100%;
-	height: calc(100% - #{$button_height});
+	height: calc(100% - #{$viewable_height});
 	float: right;
 	background: gray;
 }
@@ -164,12 +164,12 @@ html, body {
 }
 
 #timeline {
-	$timeline_pos: -($control_height*4 - $button_height);
+	$timeline_pos: -(200 - $button_height);
 
 	@include animated(.125s);
 	@include position(fixed, 0 0px $timeline_pos 0px, 998);
 	cursor: pointer;
-	height: $control_height*4;
+	height: 200px;
 
 	#timeline_toggle {
 		+ #timeline_title {
@@ -181,7 +181,7 @@ html, body {
 
 		~ #slides {
 			@include animated(.25s);
-			@include size(100% $control_height*4 - $button_height);
+			@include size(100% 200 - $button_height);
 			margin: 0;
 			padding: $button_height/4;
 			background: red;

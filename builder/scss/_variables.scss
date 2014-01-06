@@ -8,8 +8,8 @@ $line_height: floor($font_size*$ratio);
 $headline_font: "din-condensed-web",sans-serif;
 
 $editor_width: 500px;
-$control_height: 50px;
 $button_height: 38px;
+$viewable_height: $button_height*2;
 
 $large_screen: 1200px;
 $tablet_l: 1024px;

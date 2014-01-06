@@ -48,7 +48,7 @@ $(document).ready(function(){
 	Builder.init(styles);
 	console.log("Applying Styles to Slide:",Builder.styles());
 
-	$(".slide_style").on("keyup click blur focus change paste", function(e) {
+	$(".slide_style").on("change", function(e) {
 		var style_obj = {
 			style : $(this).attr("data-style"),
 			val: $(this).val(),

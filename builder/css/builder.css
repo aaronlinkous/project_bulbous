@@ -75,7 +75,7 @@ html, body {
   font-size: 14px;
   border: none;
   width: 100%;
-  height: calc(100% - 38px);
+  height: calc(100% - 76px);
   outline: none;
   resize: none;
 }
@@ -83,7 +83,7 @@ html, body {
 /* line 62, ../scss/_core.scss */
 #slide {
   width: 100%;
-  height: calc(100% - 38px);
+  height: calc(100% - 76px);
   float: right;
   background: gray;
 }
